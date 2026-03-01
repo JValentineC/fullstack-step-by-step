@@ -10,6 +10,7 @@ Deploy the React frontend to **GitHub Pages** while keeping it connected to a se
 |---|---|
 | Vite `base` path for subdirectory hosting | `vite.config.ts` |
 | `VITE_*` environment variables (build-time) | `src/api/entries.ts`, `src/api/auth.ts` |
+| `import.meta.env.BASE_URL` for static assets | `src/components/Header.tsx` |
 | `.env.production` for production-only values | `.env.production.example` |
 | `gh-pages` package for one-command deploy | `package.json` (`deploy` script) |
 | HashRouter for static-file hosting | `src/main.tsx` (unchanged — already in place) |
@@ -28,6 +29,7 @@ Deploy the React frontend to **GitHub Pages** while keeping it connected to a se
 | `vite.config.ts` | Reads `VITE_BASE` from env to set Vite's `base` path for GitHub Pages |
 | `src/api/entries.ts` | Uses `import.meta.env.VITE_API_URL` instead of hardcoded `/api` |
 | `src/api/auth.ts` | Uses `import.meta.env.VITE_API_URL` instead of hardcoded `/api/auth` |
+| `src/components/Header.tsx` | Uses `import.meta.env.BASE_URL` for the profile image path |
 | `package.json` | Added `gh-pages` dev dependency + `"deploy"` script |
 | `.env.production.example` | New file — template for production env vars |
 | `.gitignore` | Added `.env.production` to ignored files |
@@ -94,7 +96,23 @@ const BASE = `${import.meta.env.VITE_API_URL ?? ''}/api`
 - **Local dev**: `VITE_API_URL` is not set → falls back to `''` → requests go to `/api` → Vite proxy forwards to `localhost:4000`
 - **Production**: `VITE_API_URL=https://your-backend.example.com` → requests go directly to the deployed backend
 
-### 4. Create `.env.production`
+### 4. Fix static asset paths with `BASE_URL`
+
+Images in `public/` (like `profile.jpg`) are referenced with absolute paths. When your app is at `/DevLog/`, the path `/profile.jpg` won't work — it needs to be `/DevLog/profile.jpg`.
+
+Vite provides `import.meta.env.BASE_URL` (set automatically from the `base` config). Use it for any static asset reference:
+
+```tsx
+// ❌ Breaks on GitHub Pages — resolves to /profile.jpg
+<img src="/profile.jpg" />
+
+// ✅ Resolves to /DevLog/profile.jpg in production
+<img src={`${import.meta.env.BASE_URL}profile.jpg`} />
+```
+
+> **Note**: `import.meta.env.BASE_URL` always has a trailing slash, so don't add one before the filename.
+
+### 5. Create `.env.production`
 
 Copy `.env.production.example` and fill in your real values:
 
@@ -109,7 +127,7 @@ VITE_API_URL=https://your-backend.example.com
 
 > **Important**: Vite automatically loads `.env.production` during `vite build`. You don't need to do anything special.
 
-### 5. Why HashRouter?
+### 6. Why HashRouter?
 
 GitHub Pages doesn't have a server to handle SPA fallback routing. With `BrowserRouter`, visiting `https://user.github.io/DevLog/entries` directly would return a 404.
 
@@ -122,7 +140,7 @@ https://jvalentinec.github.io/DevLog/entries          ❌ 404
 
 We've been using `HashRouter` since Step 04 — no changes needed.
 
-### 6. Deploy with `gh-pages`
+### 7. Deploy with `gh-pages`
 
 The `gh-pages` package pushes the `dist/` folder to a `gh-pages` branch:
 
@@ -136,7 +154,7 @@ This runs `npm run build && gh-pages -d dist` which:
 2. Pushes the `dist/` folder to the `gh-pages` branch
 3. GitHub Pages serves from that branch automatically
 
-### 7. Enable GitHub Pages
+### 8. Enable GitHub Pages
 
 1. Go to your repo on GitHub → **Settings** → **Pages**
 2. Under **Source**, select the `gh-pages` branch and `/ (root)` folder
@@ -174,10 +192,12 @@ Without this, the browser will block API requests from the frontend.
 - **No trailing slash on `VITE_API_URL`** — the code adds `/api` after it.
 - **Build output goes to `dist/`** — `gh-pages` pushes only this folder, so your source code stays private.
 - **The `gh-pages` branch is auto-created** — you don't need to create it manually.
+- **`import.meta.env.BASE_URL`** — Vite sets this automatically from your `base` config. Use it for any `public/` asset reference in JSX (images, favicons, etc.).
 
 ## ✅ Do
 
 - Use `VITE_API_URL` for the backend URL — never hardcode it
+- Use `import.meta.env.BASE_URL` for static asset paths — don't hardcode `/`
 - Use `HashRouter` for GitHub Pages compatibility
 - Set `CORS_ORIGIN` on the backend to your GitHub Pages URL
 - Keep `.env.production` in `.gitignore` — it may contain your backend URL
@@ -190,6 +210,7 @@ Without this, the browser will block API requests from the frontend.
 - Don't set `CORS_ORIGIN` to `*` in production
 - Don't hardcode `base: '/DevLog/'` in `vite.config.ts` — use the env var so it's flexible
 - Don't commit `.env.production` with real backend URLs to public repos
+- Don't use absolute paths like `"/profile.jpg"` — they ignore the base path
 
 ## Check Your Work
 
