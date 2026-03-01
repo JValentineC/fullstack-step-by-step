@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique @db.NVarChar(100)
+  password  String   @db.NVarChar(255)
+  createdAt DateTime @default(now())
+
+  entries Entry[]
+}
+
+model Entry {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.NVarChar(255)
+  summary   String   @db.NVarChar(4000)
+  mood      String   @db.NVarChar(50)
+  tags      String   @default("") @db.NVarChar(500)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  @@index([tags], name: "idx_entry_tags")
+  @@index([createdAt], name: "idx_entry_created")
+  @@index([userId], name: "idx_entry_user")
+}
