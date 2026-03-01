@@ -1,0 +1,21 @@
+// Prisma schema for DevLog — SQL Server
+// Docs: https://www.prisma.io/docs/orm/overview/databases/sql-server
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Entry {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.NVarChar(255)
+  summary   String   @db.NVarChar(Max)
+  mood      String   @db.NVarChar(50)
+  tags      String   @db.NVarChar(500) // comma-separated; parsed in app code
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
