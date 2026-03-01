@@ -6,7 +6,7 @@ function Header() {
 
   return (
     <header>
-      <img src="/profile.jpg" alt="Profile photo" width="96" height="96" />
+      <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Profile photo" width="96" height="96" />
       <h1>DevLog</h1>
       <nav>
         <Link to="/">Home</Link>{' '}
