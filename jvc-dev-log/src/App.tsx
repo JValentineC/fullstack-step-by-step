@@ -32,10 +32,50 @@ function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main id="main-content" tabIndex={-1} className="flex-1 container mx-auto px-4 py-8">
+      <main id="main-content" tabIndex={-1} className="flex-1 container mx-auto px-4 py-8 space-y-10">
         <section>
           <h2 className="text-3xl font-bold mb-4">Welcome</h2>
-          <p>A developer journal powered by the SERN stack.</p>
+          <p className="text-lg leading-relaxed">
+            A developer journal and full-stack curriculum built for{' '}
+            <a href="https://www.icstars.org/" target="_blank" rel="noopener noreferrer" className="link link-primary">i.c.Stars</a>{' '}
+            interns and the facilitators who guide them.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-2xl font-semibold mb-3">Why I Built This</h3>
+          <p className="mb-3">This curriculum exists for i.c.Stars interns and for the facilitators who guide them. I wanted a resource that is:</p>
+          <ul className="list-disc list-inside space-y-1 ml-2">
+            <li><strong>Step-by-step and incremental</strong> — Small changes, one clear idea at a time.</li>
+            <li><strong>Transparent</strong> — Shows what to do and why it matters — no magic, no gatekeeping.</li>
+            <li><strong>Teachable</strong> — Every folder contains a working example plus a README with Goals, Steps, Helpful Hints, and Do/Don&apos;t tips.</li>
+            <li><strong>Reusable</strong> — Something facilitators can run as-is, remix, or extend for future cohorts.</li>
+          </ul>
+          <p className="mt-3">If you&apos;re hungry to learn, willing to be coached, and ready to put in the reps — this repo is for you.</p>
+        </section>
+
+        <section>
+          <h3 className="text-2xl font-semibold mb-3">What You&apos;ll Find Here</h3>
+          <ul className="list-disc list-inside space-y-1 ml-2">
+            <li><strong>A SERN stack journey</strong> — React (Vite) + Node/Express + Prisma + SQL Server, deployed to GitHub Pages (frontend) and a simple host (backend).</li>
+            <li><strong>Bite-sized milestones</strong> — From scaffolding a React app to wiring routes, forms, state, and then a real database + API.</li>
+            <li><strong>Production-minded habits</strong> — Semantic HTML first, routing for static hosting, environment variables, health checks, and clear commit messages.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 className="text-2xl font-semibold mb-3">How to Use This Repo</h3>
+          <ol className="list-decimal list-inside space-y-1 ml-2">
+            <li>Open a step folder (start with <strong>01-getting-started</strong>).</li>
+            <li>Read the README for Goals, Steps, Helpful Hints, Do/Don&apos;t, and a quick self-check.</li>
+            <li>Run the code, then commit your work with a message that explains your learning.</li>
+            <li>Reflect — what felt easy, what felt hard, and what you&apos;ll try differently next time.</li>
+          </ol>
+          <p className="mt-3">Facilitators can teach directly from the READMEs or fork/extend the examples for deeper dives.</p>
+          <p className="mt-3">
+            View the full curriculum on GitHub:{' '}
+            <a href="https://github.com/JValentineC/DevLog" target="_blank" rel="noopener noreferrer" className="link link-primary font-semibold">github.com/JValentineC/DevLog</a>
+          </p>
         </section>
       </main>
       <Footer />
