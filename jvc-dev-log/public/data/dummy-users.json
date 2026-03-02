@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "username": "jvc",
+    "password": "hashedpassword_demo_jvc2026",
+    "displayName": "Jonathan V. Castillo",
+    "role": "admin",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "username": "intern_alex",
+    "password": "hashedpassword_demo_alex2026",
+    "displayName": "Alex Torres",
+    "role": "intern",
+    "createdAt": "2026-01-06T10:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "username": "intern_maya",
+    "password": "hashedpassword_demo_maya2026",
+    "displayName": "Maya Johnson",
+    "role": "intern",
+    "createdAt": "2026-01-06T10:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "username": "intern_dev",
+    "password": "hashedpassword_demo_dev2026",
+    "displayName": "Devon Reyes",
+    "role": "intern",
+    "createdAt": "2026-01-06T10:00:00.000Z"
+  }
+]
