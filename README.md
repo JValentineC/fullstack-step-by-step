@@ -1,5 +1,7 @@
 # DevLog - Learn Full-Stack Web Development Step by Step
 
+**Live site:** [https://icstarslog.nfshost.com/](https://icstarslog.nfshost.com/) | **GitHub Pages:** [https://jvalentinec.github.io/DevLog/](https://jvalentinec.github.io/DevLog/)
+
 A hands-on tutorial that guides interns how to build a **Dev Log** application from scratch using the **SERN stack** (SQL Server, Express, React, Node). Each step lives in its own folder with a working app and a beginner-friendly README.
 
 ## Who This Is For
