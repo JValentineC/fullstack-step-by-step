@@ -22,12 +22,12 @@ If you'd like to learn more about i.c.Stars - or know someone whose life could b
 
 ## Prerequisites
 
-| Requirement | Minimum Version | Check |
-|---|---|---|
-| Node.js | 20+ | `node -v` |
-| npm | (comes with Node) | `npm -v` |
-| Git | any recent version | `git --version` |
-| Code editor | VS Code recommended | - |
+| Requirement | Minimum Version     | Check           |
+| ----------- | ------------------- | --------------- |
+| Node.js     | 20+                 | `node -v`       |
+| npm         | (comes with Node)   | `npm -v`        |
+| Git         | any recent version  | `git --version` |
+| Code editor | VS Code recommended | -               |
 
 ## How to Use This Repo
 
@@ -45,34 +45,38 @@ Open the URL printed in the terminal (usually http://localhost:5173).
 
 Each folder is a self-contained step. Work through them in order:
 
-| # | Folder | What You'll Learn |
-|---|---|---|
-| 01 | `01-getting-started` | Scaffold a Vite + React + TypeScript app |
-| 02 | `02-clean-home-and-about` | Strip template, write semantic HTML |
-| 03 | `03-header-with-profile-photo` | Add static assets via `public/` |
-| 04 | `04-basic-routing-one-link` | Client-side routing with HashRouter |
-| 05 | `05-extract-simple-components` | Split into reusable components |
-| 06 | `06-static-entries-list` | Hardcoded data list (no state yet) |
-| 07 | `07-controlled-form-basics` | Controlled inputs: title, content |
-| 08 | `08-form-validation-minimal` | Required fields + client-side validation |
-| 09 | `09-state-lifting-and-props` | Lift state to parent, pass via props |
-| 10 | `10-tags-and-mood-fields` | Extend data shape: tags, mood, createdAt |
-| 11 | `11-express-api-scaffold` | Backend: Node + Express skeleton |
-| 12 | `12-prisma-sqlserver-setup` | Prisma schema, migrations, seed script |
-| 13 | `13-crud-endpoints` | REST API: POST/GET/PUT/DELETE with Zod |
-| 14 | `14-frontend-fetch-list-create` | Frontend calls API: create + list |
-| 15 | `15-edit-delete-flows` | Edit & delete from UI |
-| 16 | `16-filtering-by-tags` | Query params and UI filters |
-| 17 | `17-pagination-and-sorting` | Server-side pagination + UI controls |
-| 18 | `18-auth-basics` | Users, password hashing, JWT/sessions |
-| 19 | `19-deploy-backend` | Deploy API: env vars, CORS, health check |
-| 20 | `20-deploy-frontend-gh-pages` | Vite build + GitHub Pages deploy |
-| 21 | `21-testing-and-ci` | Vitest + RTL + GitHub Actions |
-| 22 | `22-a11y-and-polish` | Accessibility, polish, retrospective |
-| 23 | `23-tailwind-daisyui-setup` | Install Tailwind CSS v4 + daisyUI; restyle layout shell |
-| 24 | `24-daisyui-components` | Restyle all inner components with daisyUI classes |
-| 25 | `25-prisma-mysql-migration` | Switch Prisma from SQL Server to MySQL / MariaDB |
-| 26 | `26-deploy-backend-nfsn` | Deploy Express API to NearlyFreeSpeech.NET |
+| #   | Folder                          | What You'll Learn                                             |
+| --- | ------------------------------- | ------------------------------------------------------------- |
+| 01  | `01-getting-started`            | Scaffold a Vite + React + TypeScript app                      |
+| 02  | `02-clean-home-and-about`       | Strip template, write semantic HTML                           |
+| 03  | `03-header-with-profile-photo`  | Add static assets via `public/`                               |
+| 04  | `04-basic-routing-one-link`     | Client-side routing with HashRouter                           |
+| 05  | `05-extract-simple-components`  | Split into reusable components                                |
+| 06  | `06-static-entries-list`        | Hardcoded data list (no state yet)                            |
+| 07  | `07-controlled-form-basics`     | Controlled inputs: title, content                             |
+| 08  | `08-form-validation-minimal`    | Required fields + client-side validation                      |
+| 09  | `09-state-lifting-and-props`    | Lift state to parent, pass via props                          |
+| 10  | `10-tags-and-mood-fields`       | Extend data shape: tags, mood, createdAt                      |
+| 11  | `11-express-api-scaffold`       | Backend: Node + Express skeleton                              |
+| 12  | `12-prisma-sqlserver-setup`     | Prisma schema, migrations, seed script                        |
+| 13  | `13-crud-endpoints`             | REST API: POST/GET/PUT/DELETE with Zod                        |
+| 14  | `14-frontend-fetch-list-create` | Frontend calls API: create + list                             |
+| 15  | `15-edit-delete-flows`          | Edit & delete from UI                                         |
+| 16  | `16-filtering-by-tags`          | Query params and UI filters                                   |
+| 17  | `17-pagination-and-sorting`     | Server-side pagination + UI controls                          |
+| 18  | `18-auth-basics`                | Users, password hashing, JWT/sessions                         |
+| 19  | `19-deploy-backend`             | Deploy API: env vars, CORS, health check                      |
+| 20  | `20-deploy-frontend-gh-pages`   | Vite build + GitHub Pages deploy                              |
+| 21  | `21-testing-and-ci`             | Vitest + RTL + GitHub Actions                                 |
+| 22  | `22-a11y-and-polish`            | Accessibility, polish, retrospective                          |
+| 23  | `23-tailwind-daisyui-setup`     | Install Tailwind CSS v4 + daisyUI; restyle layout shell       |
+| 24  | `24-daisyui-components`         | Restyle all inner components with daisyUI classes             |
+| 25  | `25-prisma-mysql-migration`     | Switch Prisma from SQL Server to MySQL / MariaDB              |
+| 26  | `26-deploy-backend-nfsn`        | Deploy Express API to NearlyFreeSpeech.NET                    |
+| 27  | `27-demo-mode-setup`            | Offline demo mode: dummy data, localStorage, auto-detect flag |
+| 28  | `28-demo-credentials-login`     | Show sample credentials on the login page in demo mode        |
+| 29  | `29-accordion-entries-sort`     | Accordion entry cards + oldest-first default sort             |
+| 30  | `30-responsive-navbar`          | Responsive navbar: desktop text links, mobile hamburger menu  |
 
 ### Compare steps
 
@@ -105,16 +109,16 @@ Or in VS Code, right-click two files and choose **Compare Selected**.
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19 + TypeScript, Vite 7 |
-| Styling | Tailwind CSS 4, daisyUI 5 |
-| Routing | React Router (HashRouter → BrowserRouter) |
-| Backend | Node.js, Express |
-| Database | SQL Server (MSSQL), Prisma ORM |
-| Deployment | GitHub Pages (frontend), TBD (backend) |
-| Testing | Vitest, React Testing Library |
-| CI | GitHub Actions |
+| Layer      | Technology                                |
+| ---------- | ----------------------------------------- |
+| Frontend   | React 19 + TypeScript, Vite 7             |
+| Styling    | Tailwind CSS 4, daisyUI 5                 |
+| Routing    | React Router (HashRouter → BrowserRouter) |
+| Backend    | Node.js, Express                          |
+| Database   | SQL Server (MSSQL), Prisma ORM            |
+| Deployment | GitHub Pages (frontend), TBD (backend)    |
+| Testing    | Vitest, React Testing Library             |
+| CI         | GitHub Actions                            |
 
 ## License
 
