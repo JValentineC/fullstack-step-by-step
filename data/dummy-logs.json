@@ -232,5 +232,41 @@
     "tags": ["nfsn", "freebsd", "mysql2", "deploy", "production"],
     "createdAt": "2026-02-17T09:00:00.000Z",
     "updatedAt": "2026-02-17T09:00:00.000Z"
+  },
+  {
+    "id": 27,
+    "title": "Bonus – Dummy Data & Demo Mode for GitHub Pages",
+    "summary": "Hey interns! We just added a full demo mode so the GitHub Pages version works without a backend. Created dummy-logs.json with a log entry for every step, dummy-users.json with sample credentials, and a DemoData layer that uses localStorage to cache new entries. The api/entries.ts and api/auth.ts files now auto-detect when VITE_API_URL is missing and route everything through the demo layer. Why did the JSON file break up with the database? It needed more space! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["demo-mode", "dummy-data", "localStorage", "github-pages"],
+    "createdAt": "2026-03-02T09:00:00.000Z",
+    "updatedAt": "2026-03-02T09:00:00.000Z"
+  },
+  {
+    "id": 28,
+    "title": "Bonus – Demo Credentials on Login Page",
+    "summary": "Sup interns! Quick UX win — we added a credentials table to the login page that only shows up in demo mode. Now anyone visiting the GitHub Pages version can see the sample usernames and passwords right there, no guessing required. It's conditionally rendered with a simple DEMO flag check. What did the login form say to the user? 'I promise I won't judge your password.' Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["ux", "demo-mode", "login", "conditional-rendering"],
+    "createdAt": "2026-03-02T10:00:00.000Z",
+    "updatedAt": "2026-03-02T10:00:00.000Z"
+  },
+  {
+    "id": 29,
+    "title": "Bonus – Accordion Entry Cards & Oldest-First Sort",
+    "summary": "Yo interns! We swapped out the full card layout for daisyUI accordion/collapse components — now you can see way more entries on screen and expand whichever one you want to read. Also flipped the default sort from newest-first to oldest-first so the entries flow like a story from Step 1 to Step 26. Why did the accordion go to therapy? It had too many things bottled up inside! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["daisyui", "accordion", "sorting", "ux"],
+    "createdAt": "2026-03-02T11:00:00.000Z",
+    "updatedAt": "2026-03-02T11:00:00.000Z"
+  },
+  {
+    "id": 30,
+    "title": "Bonus – Responsive Navbar with Hamburger Menu",
+    "summary": "What's up interns! We made the navbar responsive — on desktop you get the classic horizontal text links, and on mobile it collapses into a hamburger menu dropdown with SVG icons next to each link. Home gets a house, Entries gets a document, New Entry gets a plus, About gets an info circle, and Log In/Out get door arrows. Clean and compact. Why did the hamburger menu feel so important? Because it held everything together! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["responsive", "hamburger-menu", "navbar", "svg-icons", "mobile"],
+    "createdAt": "2026-03-02T12:00:00.000Z",
+    "updatedAt": "2026-03-02T12:00:00.000Z"
   }
 ]
