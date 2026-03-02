@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "title": "Step 01 – Getting Started with Vite + React + TypeScript",
+    "summary": "Hey interns! Welcome to Step 1 — we just scaffolded our very first React + TypeScript app using Vite. Ran the dev server, saw the spinning logo, and confirmed Hot Module Replacement works like a charm. It's not much yet, but every skyscraper starts with a foundation (or at least a `package.json`). Why do programmers prefer dark mode? Because light attracts bugs! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["vite", "react", "typescript", "scaffold"],
+    "createdAt": "2026-01-06T09:00:00.000Z",
+    "updatedAt": "2026-01-06T09:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Step 02 – Clean Home & About Page",
+    "summary": "What's up interns! In Step 2 we gutted the Vite boilerplate and replaced it with a clean Home page and an About Me section using nothing but semantic HTML — no className in sight. It feels good to start fresh. You know, a clean codebase is like a clean desk… it lasts about five minutes. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["html", "semantic", "cleanup"],
+    "createdAt": "2026-01-07T09:00:00.000Z",
+    "updatedAt": "2026-01-07T09:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Step 03 – Header with Profile Photo",
+    "summary": "Yo interns! Step 3 is all about adding a profile image to the header from the public folder. We learned about root-relative paths and proper alt text for accessibility. Fun fact: I spent 10 minutes picking the right photo before realizing nobody looks good in 100×100 pixels. Why did the developer go broke? Because he used up all his cache! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["images", "public-folder", "accessibility"],
+    "createdAt": "2026-01-08T09:00:00.000Z",
+    "updatedAt": "2026-01-08T09:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "title": "Step 04 – Basic Routing with One Link",
+    "summary": "Hey team! In Step 4 we installed react-router-dom and set up HashRouter so we can navigate between Home and About without a full-page reload. One link, one route, one giant leap for our little app. Why do Java developers wear glasses? Because they can't C#. Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["react-router", "hashrouter", "navigation"],
+    "createdAt": "2026-01-09T09:00:00.000Z",
+    "updatedAt": "2026-01-09T09:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "title": "Step 05 – Extract Simple Components",
+    "summary": "What's good interns! Step 5 was all about refactoring — we broke that monolithic App.tsx into Header, AboutSection, and Footer components in their own files. Same UI, way better code organization. It's like cleaning your room: nobody notices but you feel amazing. What's a programmer's favorite hangout place? Foo Bar! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["components", "refactor", "organization"],
+    "createdAt": "2026-01-10T09:00:00.000Z",
+    "updatedAt": "2026-01-10T09:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "title": "Step 06 – Static Entries List",
+    "summary": "Hey there interns! In Step 6 we added an All Entries page that renders hardcoded dev-log entries through EntryCard components. We practiced typed data modules and Array.map() — the bread and butter of React lists. Why do programmers hate nature? It has too many bugs and no documentation. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["entries", "map", "typed-data", "entrycard"],
+    "createdAt": "2026-01-13T09:00:00.000Z",
+    "updatedAt": "2026-01-13T09:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "title": "Step 07 – Controlled Form Basics",
+    "summary": "Sup interns! Step 7 — we built a New Entry form using React controlled inputs with useState, value, and onChange. Submission logs to console and resets the fields. It's alive! Well, sort of. It console.logs. Baby steps. What's the object-oriented way to become wealthy? Inheritance! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["forms", "useState", "controlled-inputs"],
+    "createdAt": "2026-01-14T09:00:00.000Z",
+    "updatedAt": "2026-01-14T09:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "title": "Step 08 – Form Validation (Minimal)",
+    "summary": "Hey interns! In Step 8 we added client-side validation to our form — both fields required, inline errors after first submit, disabled submit button while invalid, plus aria-invalid and aria-describedby for a11y. Because friends don't let friends ship forms without validation. Why did the developer quit his job? Because he didn't get arrays! Keep coding, keep reading ~jv",
+    "mood": "frustrated",
+    "tags": ["validation", "a11y", "aria", "forms"],
+    "createdAt": "2026-01-15T09:00:00.000Z",
+    "updatedAt": "2026-01-15T09:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "title": "Step 09 – State Lifting & Props",
+    "summary": "What's up interns! Step 9 is the big one — we lifted the entries array into App state, passed it down via props, and wired an onAddEntry callback to the form. New entries actually show up on the list now. The app is interactive for the first time! You know what they say: props go down, callbacks go up, and bugs go everywhere. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["state-lifting", "props", "callbacks", "interactive"],
+    "createdAt": "2026-01-16T09:00:00.000Z",
+    "updatedAt": "2026-01-16T09:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "title": "Step 10 – Tags & Mood Fields",
+    "summary": "Yo interns! In Step 10 we extended the Entry type with a mood (union type via select), tags (comma-separated string turned into an array), and a createdAt timestamp. The form and card both got upgrades. Our entries have feelings now — literally. How many programmers does it take to change a light bulb? None, that's a hardware problem! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["mood", "tags", "union-types", "select"],
+    "createdAt": "2026-01-20T09:00:00.000Z",
+    "updatedAt": "2026-01-20T09:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "title": "Step 11 – Express API Scaffold",
+    "summary": "Hey interns! Welcome to the backend! In Step 11 we created a standalone Express 5 + TypeScript server with a /api/health endpoint, .env configuration, startup guards, and CORS. No database yet — just a heartbeat. It's like building a car engine before you have wheels. What's a backend developer's favorite type of music? Heavy server metal! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["express", "api", "backend", "cors", "health-check"],
+    "createdAt": "2026-01-21T09:00:00.000Z",
+    "updatedAt": "2026-01-21T09:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "title": "Step 12 – Prisma + SQL Server Setup",
+    "summary": "What's good interns! Step 12 — we plugged in Prisma ORM connected to SQL Server, defined the Entry model, pushed the schema to create the table, and added a /api/health/ready endpoint that pings the database. We have a real database now! I asked my database out to dinner. It said it already had too many connections. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["prisma", "sql-server", "orm", "database"],
+    "createdAt": "2026-01-22T09:00:00.000Z",
+    "updatedAt": "2026-01-22T09:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "title": "Step 13 – CRUD Entries",
+    "summary": "Hey team! In Step 13 we implemented all five REST endpoints — GET list, GET by id, POST, PUT, and DELETE — using an Express Router and Prisma queries, with request validation and proper HTTP status codes. Full CRUD, baby! A SQL query walks into a bar, sees two tables and asks: 'Can I JOIN you?' Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["crud", "rest", "express-router", "prisma-queries"],
+    "createdAt": "2026-01-23T09:00:00.000Z",
+    "updatedAt": "2026-01-23T09:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "title": "Step 14 – Frontend Fetch: List & Create",
+    "summary": "Sup interns! Step 14 — we connected the React frontend to the Express API! Replaced seed data with fetch + useEffect calls, added a Vite proxy for /api, and wired the New Entry form to POST to the server. Frontend and backend are talking now. Why do frontend devs eat lunch alone? Because they don't know how to make server requests… until now! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["fetch", "useEffect", "vite-proxy", "frontend-backend"],
+    "createdAt": "2026-01-27T09:00:00.000Z",
+    "updatedAt": "2026-01-27T09:00:00.000Z"
+  },
+  {
+    "id": 15,
+    "title": "Step 15 – Edit & Delete Flows",
+    "summary": "Hey interns! In Step 15 we added edit and delete functionality with a reusable form component, PUT/DELETE fetch calls, optimistic UI updates, rollback on error, and toast notifications. Users can now modify and remove entries. With great CRUD power comes great CRUD responsibility. What's a ninja programmer's weapon of choice? Throwing stars on GitHub! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["edit", "delete", "optimistic-ui", "toast", "reusable-form"],
+    "createdAt": "2026-01-28T09:00:00.000Z",
+    "updatedAt": "2026-01-28T09:00:00.000Z"
+  },
+  {
+    "id": 16,
+    "title": "Step 16 – Filtering by Tags",
+    "summary": "What's up interns! Step 16 — we added tag-based filtering with a GET /api/entries/tags endpoint, a Prisma contains query with a database index, and a TagFilter dropdown that syncs with useSearchParams. Filter your chaos! Why couldn't the developer find his favorite tag? Because it wasn't indexed! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["filtering", "tags", "useSearchParams", "prisma-index"],
+    "createdAt": "2026-01-29T09:00:00.000Z",
+    "updatedAt": "2026-01-29T09:00:00.000Z"
+  },
+  {
+    "id": 17,
+    "title": "Step 17 – Pagination & Sorting",
+    "summary": "Yo interns! In Step 17 we implemented server-side pagination with skip/take, count queries, and sortable columns with a whitelist. The API returns a nice { data, page, limit, total, totalPages } envelope, and the frontend got Pagination and SortControls components synced to URL params. Why did the pagination go to therapy? It had too many issues to skip. Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["pagination", "sorting", "skip-take", "url-params"],
+    "createdAt": "2026-01-30T09:00:00.000Z",
+    "updatedAt": "2026-01-30T09:00:00.000Z"
+  },
+  {
+    "id": 18,
+    "title": "Step 18 – Auth Basics",
+    "summary": "Hey interns! Step 18 is a big milestone — we added user authentication with bcrypt password hashing, JWT tokens, Express auth middleware, a React AuthContext with localStorage persistence, protected routes via Navigate, and a Login/Register page. Security matters! I told my password it was too weak. It didn't take it personally, it didn't have enough characters. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["auth", "jwt", "bcrypt", "login", "protected-routes"],
+    "createdAt": "2026-02-03T09:00:00.000Z",
+    "updatedAt": "2026-02-03T09:00:00.000Z"
+  },
+  {
+    "id": 19,
+    "title": "Step 19 – Deploy Backend",
+    "summary": "What's good interns! In Step 19 we made the server production-ready by adding morgan request logging, serving the Vite build as static files, graceful SIGTERM/SIGINT shutdown, and a start script for hosting platforms. Our baby is almost ready for the real world. Why do servers never get lonely? Because they're always listening! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["deploy", "production", "morgan", "graceful-shutdown"],
+    "createdAt": "2026-02-04T09:00:00.000Z",
+    "updatedAt": "2026-02-04T09:00:00.000Z"
+  },
+  {
+    "id": 20,
+    "title": "Step 20 – Deploy Frontend to GitHub Pages",
+    "summary": "Hey team! Step 20 — we deployed the React frontend to GitHub Pages using a configurable Vite base path, VITE_* env vars for the API URL, and the gh-pages package for one-command deploys. The world can see our app now! My code doesn't have bugs, it just develops random features on GitHub Pages. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["github-pages", "deploy", "vite-base", "env-vars"],
+    "createdAt": "2026-02-05T09:00:00.000Z",
+    "updatedAt": "2026-02-05T09:00:00.000Z"
+  },
+  {
+    "id": 21,
+    "title": "Step 21 – Testing & CI",
+    "summary": "Sup interns! In Step 21 we added automated tests with Vitest and React Testing Library for components, supertest for API endpoints, and a GitHub Actions CI workflow that runs all tests on every push. Tests are the seatbelt of coding — annoying until they save your life. Why do testers love the fall? Because of all the edge cases! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["vitest", "testing-library", "supertest", "ci", "github-actions"],
+    "createdAt": "2026-02-06T09:00:00.000Z",
+    "updatedAt": "2026-02-06T09:00:00.000Z"
+  },
+  {
+    "id": 22,
+    "title": "Step 22 – Accessibility & Polish",
+    "summary": "Hey interns! Step 22 was all about a11y love — skip-to-content link, focus management on route changes, NavLink with aria-current, focus-visible outlines, toast live regions, focus-first-invalid on form errors, color-contrast fixes, and a 404 page. Accessibility isn't optional, it's essential. What did the ARIA label say to the button? 'Don't worry, I've got your role covered.' Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["a11y", "focus-management", "aria", "skip-link", "404"],
+    "createdAt": "2026-02-10T09:00:00.000Z",
+    "updatedAt": "2026-02-10T09:00:00.000Z"
+  },
+  {
+    "id": 23,
+    "title": "Step 23 – Tailwind + daisyUI Setup",
+    "summary": "What's up interns! In Step 23 we installed Tailwind CSS v4 and daisyUI v5, configured the Vite plugin, and restyled the layout shell — navbar, footer, and containers — with daisyUI classes while keeping all our a11y features intact. Our app finally looks like it was made this decade. Why did CSS break up with HTML? Because it found a better class with Tailwind. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["tailwind", "daisyui", "styling", "vite-plugin"],
+    "createdAt": "2026-02-11T09:00:00.000Z",
+    "updatedAt": "2026-02-11T09:00:00.000Z"
+  },
+  {
+    "id": 24,
+    "title": "Step 24 – daisyUI Components",
+    "summary": "Yo interns! Step 24 — we restyled every remaining component with daisyUI classes: entry cards, forms, pagination, filters, sort controls, toasts, and the login page. No bare inline styles or unstyled HTML left standing. The glow-up is real. Why do CSS developers never feel lonely? Because they always have great class. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["daisyui", "components", "styling", "glow-up"],
+    "createdAt": "2026-02-12T09:00:00.000Z",
+    "updatedAt": "2026-02-12T09:00:00.000Z"
+  },
+  {
+    "id": 25,
+    "title": "Step 25 – Prisma MySQL Migration",
+    "summary": "Hey interns! In Step 25 we switched the database from SQL Server to MySQL/MariaDB by updating the Prisma provider, translating native column types, and generating/applying migration SQL. Zero changes to routes or frontend — that's the beauty of an ORM layer. I wanted to switch databases, but my SQL Server had attachment issues. DROP TABLE fears! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["prisma", "mysql", "migration", "mariadb"],
+    "createdAt": "2026-02-13T09:00:00.000Z",
+    "updatedAt": "2026-02-13T09:00:00.000Z"
+  },
+  {
+    "id": 26,
+    "title": "Step 26 – Deploy Backend to NFSN",
+    "summary": "What's good interns! Final step! In Step 26 we deployed the Express backend to NearlyFreeSpeech.NET on FreeBSD, replaced Prisma with raw mysql2 queries (no FreeBSD Prisma binary), configured a daemon and Apache proxy, and went fully live. We did it! The whole thing, start to finish, front to back. Why did the server move to FreeBSD? It wanted to be free… as in nearly free speech. Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["nfsn", "freebsd", "mysql2", "deploy", "production"],
+    "createdAt": "2026-02-17T09:00:00.000Z",
+    "updatedAt": "2026-02-17T09:00:00.000Z"
+  }
+]
