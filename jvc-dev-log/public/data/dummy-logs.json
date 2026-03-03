@@ -326,5 +326,15 @@
     "createdAt": "2026-03-07T09:00:00.000Z",
     "updatedAt": "2026-03-07T09:00:00.000Z",
     "author": "jv"
+  },
+  {
+    "id": 37,
+    "title": "Step 37 -- Friendships Backend",
+    "summary": "Hey interns! Step 37 -- we built the entire friendship API from scratch! POST /request sends a friend request with pair normalization (lower id always goes in userAId), PUT /:id/respond lets you accept or decline, DELETE /:id cancels or removes, and GET / lists all your friendships with optional status filtering. There's even a GET /status/:userId to check your relationship with anyone. Why did the two API endpoints become friends? Because they had great chemistry -- one always sent the request and the other always responded! Keep coding, keep reading ~jv",
+    "mood": "proud",
+    "tags": ["friendships", "api", "pair-normalization", "crud"],
+    "createdAt": "2026-03-08T09:00:00.000Z",
+    "updatedAt": "2026-03-08T09:00:00.000Z",
+    "author": "jv"
   }
 ]
