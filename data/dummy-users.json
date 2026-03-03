@@ -4,7 +4,10 @@
     "username": "jvc",
     "email": "jvc@icstars.org",
     "password": "hashedpassword_demo_jvc2026",
+    "handle": "jvc",
     "displayName": "Jonathan V. Castillo",
+    "bio": "i.c.Stars Cycle 53 grad, Tech Fellow, full-stack dev. Building this DevLog to help interns learn by doing.",
+    "avatarUrl": null,
     "role": "admin",
     "createdAt": "2026-01-01T00:00:00.000Z"
   },
@@ -13,7 +16,10 @@
     "username": "intern_alex",
     "email": "alex@icstars.org",
     "password": "hashedpassword_demo_alex2026",
+    "handle": "intern-alex",
     "displayName": "Alex Torres",
+    "bio": null,
+    "avatarUrl": null,
     "role": "intern",
     "createdAt": "2026-01-06T10:00:00.000Z"
   },
@@ -22,7 +28,10 @@
     "username": "intern_maya",
     "email": "maya@icstars.org",
     "password": "hashedpassword_demo_maya2026",
+    "handle": "intern-maya",
     "displayName": "Maya Johnson",
+    "bio": null,
+    "avatarUrl": null,
     "role": "intern",
     "createdAt": "2026-01-06T10:00:00.000Z"
   },
@@ -31,7 +40,10 @@
     "username": "intern_dev",
     "email": "devon@icstars.org",
     "password": "hashedpassword_demo_dev2026",
+    "handle": "intern-dev",
     "displayName": "Devon Reyes",
+    "bio": null,
+    "avatarUrl": null,
     "role": "intern",
     "createdAt": "2026-01-06T10:00:00.000Z"
   }
