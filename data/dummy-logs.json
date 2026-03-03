@@ -296,5 +296,15 @@
     "createdAt": "2026-03-04T09:00:00.000Z",
     "updatedAt": "2026-03-04T09:00:00.000Z",
     "author": "jv"
+  },
+  {
+    "id": 34,
+    "title": "Step 34 – User Profiles Backend",
+    "summary": "Hey interns! Step 34 — we built the profile API! GET /api/users/:handle looks up any user by their handle slug, and PUT /api/users/me/profile lets you update your own displayName, bio, and avatarUrl. The demo layer got matching functions so GitHub Pages still works offline. Why do back-end developers make great DJs? Because they know how to handle requests! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["profiles", "api", "express", "crud"],
+    "createdAt": "2026-03-05T09:00:00.000Z",
+    "updatedAt": "2026-03-05T09:00:00.000Z",
+    "author": "jv"
   }
 ]
