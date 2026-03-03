@@ -15,10 +15,10 @@ NFSN_PRIVATE_DIR="/home/private"
 
 # ── Build locally ─────────────────────────────────────
 # Override VITE_BASE so assets are served from / (not /fullstack-step-by-step/)
-# and clear VITE_API_URL so the frontend calls /api on the same origin.
+# Set VITE_API_URL so the frontend calls the real backend (not demo mode)
 # MSYS_NO_PATHCONV prevents Git Bash from converting "/" to "C:\Program Files\Git\"
 echo "1/4  Building frontend..."
-MSYS_NO_PATHCONV=1 VITE_BASE=/ VITE_API_URL= npm run build
+MSYS_NO_PATHCONV=1 VITE_BASE=/ VITE_API_URL=https://icstarslog.nfshost.com npm run build
 
 echo "2/4  Building server..."
 npm run build:server

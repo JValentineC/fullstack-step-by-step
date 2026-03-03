@@ -268,5 +268,23 @@
     "tags": ["responsive", "hamburger-menu", "navbar", "svg-icons", "mobile"],
     "createdAt": "2026-03-02T12:00:00.000Z",
     "updatedAt": "2026-03-02T12:00:00.000Z"
+  },
+  {
+    "id": 31,
+    "title": "Step 31 – Show Entry Author",
+    "summary": "Hey interns! In Step 31 we added a LEFT JOIN between Entry and User so every API response now includes an author field with the username of whoever created it. On the frontend, EntryCard conditionally renders 'by username' right next to the date. Entries without a userId gracefully show nothing — that's the beauty of LEFT JOIN. Why did the SQL query break up with the subquery? It found a better JOIN! Keep coding, keep reading ~jv",
+    "mood": "happy",
+    "tags": ["sql", "join", "author", "typescript"],
+    "createdAt": "2026-03-03T09:00:00.000Z",
+    "updatedAt": "2026-03-03T09:00:00.000Z"
+  },
+  {
+    "id": 32,
+    "title": "Step 32 – Add Email to User",
+    "summary": "Sup interns! Step 32 — we added an email column to the User table with a unique constraint, updated the registration endpoint to require and validate email, and added an email field to the frontend registration form. The demo layer and dummy data got updated too. Now every user has an email on file — one step closer to verification. Why did the email go to therapy? It had too many attachment issues! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["email", "user-model", "registration", "validation"],
+    "createdAt": "2026-03-03T10:00:00.000Z",
+    "updatedAt": "2026-03-03T10:00:00.000Z"
   }
 ]
