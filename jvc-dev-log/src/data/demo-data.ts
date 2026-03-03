@@ -153,6 +153,7 @@ export const DemoData = {
     summary: string;
     mood: string;
     tags: string;
+    visibility?: string;
   }): Promise<ApiEntry> {
     const logs = await loadLogs();
     const maxId = logs.reduce((max, e) => Math.max(max, e.id), 0);
@@ -170,7 +171,7 @@ export const DemoData = {
             .map((t) => t.trim())
             .filter(Boolean)
         : [],
-      visibility: "PUBLIC",
+      visibility: body.visibility ?? "PUBLIC",
       createdAt: now,
       updatedAt: now,
       author: username,
@@ -182,7 +183,7 @@ export const DemoData = {
 
   async updateEntry(
     id: number,
-    body: { title: string; summary: string; mood: string; tags: string },
+    body: { title: string; summary: string; mood: string; tags: string; visibility?: string },
   ): Promise<ApiEntry | null> {
     const logs = await loadLogs();
     const idx = logs.findIndex((e) => e.id === id);
@@ -200,7 +201,7 @@ export const DemoData = {
         : [],
       updatedAt: new Date().toISOString(),
       author: logs[idx].author,
-      visibility: logs[idx].visibility ?? 'PUBLIC',
+      visibility: body.visibility ?? logs[idx].visibility ?? 'PUBLIC',
     };
     logs[idx] = updated;
     persistLogs(logs);

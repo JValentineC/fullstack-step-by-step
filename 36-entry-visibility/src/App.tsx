@@ -227,7 +227,7 @@ function About() {
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <p aria-live="polite">Loading…</p>;
+  if (loading) return <p aria-live="polite">Loading...</p>;
   if (!user) return <Navigate to="/login" replace />;
   return <>{children}</>;
 }
@@ -322,7 +322,7 @@ function EntriesPage({
           total={total}
           onPageChange={handlePageChange}
         />
-        {loading && <p aria-live="polite">Loading…</p>}
+        {loading && <p aria-live="polite">Loading...</p>}
         {!loading && entries.length === 0 && (
           <p>No entries yet. Be the first to write one!</p>
         )}
@@ -432,7 +432,7 @@ function EditEntryPage({
         className="flex-1 container mx-auto px-4 py-8"
       >
         <h2 className="text-3xl font-bold mb-4">Edit Entry</h2>
-        {loading && <p aria-live="polite">Loading…</p>}
+        {loading && <p aria-live="polite">Loading...</p>}
         {error && (
           <p>
             <strong>{error}</strong>

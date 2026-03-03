@@ -316,5 +316,15 @@
     "createdAt": "2026-03-06T09:00:00.000Z",
     "updatedAt": "2026-03-06T09:00:00.000Z",
     "author": "jv"
+  },
+  {
+    "id": 36,
+    "title": "Step 36 -- Entry Visibility",
+    "summary": "Hey interns! Step 36 -- we added a visibility selector to the entry form so you can mark entries as Public, Friends only, or Private. The card now shows a little lock or people icon when it's not public. The backend accepts and stores the visibility value on create and update too. Why did the private entry refuse to go to the party? Because it didn't want to be seen in public! Keep coding, keep reading ~jv",
+    "mood": "curious",
+    "tags": ["visibility", "forms", "privacy", "backend"],
+    "createdAt": "2026-03-07T09:00:00.000Z",
+    "updatedAt": "2026-03-07T09:00:00.000Z",
+    "author": "jv"
   }
 ]
