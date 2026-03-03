@@ -19,7 +19,14 @@ When the user asks to "do step NN", follow these phases in order.
 If the step adds or changes data shapes:
 
 1. **Update `src/data/demo-data.ts`** — keep DemoData functions in sync with real API shapes.
-2. **Update `public/data/dummy-logs.json`** — add a new seed entry for this step (dad-joke style, matching existing tone).
+2. **Add an entry to `public/data/dummy-logs.json`** for this step. Every step gets its own log entry following the existing format:
+   - `id`: next sequential integer
+   - `title`: `"Step NN – Step Title"`
+   - `summary`: 3–5 sentence recap of the step written in JV's voice — casual, encouraging, includes a dad/programming joke, ends with `Keep coding, keep reading ~jv`
+   - `mood`: one of `"happy"`, `"curious"`, `"frustrated"`, `"proud"` (vary across steps)
+   - `tags`: 3–4 lowercase kebab-case keywords relevant to the step's concepts
+   - `createdAt` / `updatedAt`: ISO timestamp, one day after the previous entry, at `T09:00:00.000Z`
+   - `author`: `"jv"` (or `null` for pre-step-31 entries that lack the field)
 3. **Update `public/data/dummy-users.json`** — only if User model changes.
 4. **Rebuild** to confirm demo-data compiles.
 

@@ -66,7 +66,29 @@ One sentence describing what this step accomplishes.
 - Show the file path as a comment or heading before each block
 - Only show the relevant parts of files — not entire files unless they're new
 
-## 5. Commit Convention
+## 5. Add a Dummy-Log Entry
+
+Every step **must** also add a new entry to `public/data/dummy-logs.json`. This keeps the demo site's timeline in sync with the curriculum. Follow the existing format:
+
+```json
+{
+  "id": <next_int>,
+  "title": "Step NN – Step Title",
+  "summary": "Hey interns! In Step NN we <recap>. <Dad joke>. Keep coding, keep reading ~jv",
+  "mood": "happy",
+  "tags": ["keyword-a", "keyword-b", "keyword-c"],
+  "createdAt": "<prev + 1 day>T09:00:00.000Z",
+  "updatedAt": "<same as createdAt>",
+  "author": "jv"
+}
+```
+
+- **Tone**: Casual, intern-friendly, includes one dad/programming joke, signed off with `~jv`.
+- **Mood**: Rotate among `happy`, `curious`, `frustrated`, `proud`.
+- **Tags**: 3–4 lowercase kebab-case keywords covering the step's main concepts.
+- **Dates**: Increment one day from the previous entry, keep `T09:00:00.000Z`.
+
+## 6. Commit Convention
 
 Each step gets one commit: `feat(step-NN): short description`
 

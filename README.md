@@ -79,17 +79,25 @@ Each folder is a self-contained step. Work through them in order:
 | 30  | `30-responsive-navbar`          | Responsive navbar: desktop text links, mobile hamburger menu  |
 | 31  | `31-show-entry-author`          | JOIN User on entry queries, display author name               |
 | 32  | `32-add-email-to-user`          | Add email column to User table, update registration           |
-| 33  | `33-email-verification-backend` | Verification codes, Nodemailer, confirm before active         |
-| 34  | `34-email-verification-frontend`| Two-phase registration UI, code entry form                    |
-| 35  | `35-add-user-roles`             | Add role column (user/admin), seed admin account              |
-| 36  | `36-admin-middleware-stats-api`  | requireAdmin middleware, GET /api/admin/stats                  |
-| 37  | `37-admin-dashboard-stats-ui`   | Admin dashboard page with stat cards and charts               |
-| 38  | `38-user-management-api`        | Admin user list, role changes, disable/enable                 |
-| 39  | `39-user-management-ui`         | Users table on admin dashboard                                |
-| 40  | `40-activity-log-backend`       | ActivityLog table, auto-log actions, admin query              |
-| 41  | `41-activity-log-ui`            | Activity feed panel on admin dashboard                        |
-| 42  | `42-content-moderation-backend` | Admin CRUD on all entries, flag system                        |
-| 43  | `43-content-moderation-ui`      | Moderation tab on admin dashboard                             |
+| 33  | `33-social-schema-migrations`   | Add handle/bio/avatar to User, visibility to Entry, Friendship table |
+| 34  | `34-user-profiles-backend`      | Profile CRUD endpoints, handle slug lookup                    |
+| 35  | `35-user-profiles-frontend`     | `/u/:handle` profile route, profile card UI, edit profile     |
+| 36  | `36-entry-visibility`           | Visibility selector in entry form, visibility icons on cards  |
+| 37  | `37-friendships-backend`        | Friend request/respond/delete/list endpoints, pair normalize  |
+| 38  | `38-users-directory`            | `/users` route, search by name/handle, friend action buttons  |
+| 39  | `39-social-feed-privacy`        | Viewer-aware feed queries, access rules, privacy badges       |
+| 40  | `40-profile-entries`            | Profile page entries list with per-viewer privacy filtering   |
+| 41  | `41-email-verification-backend` | Verification codes, Nodemailer, confirm before active         |
+| 42  | `42-email-verification-frontend`| Two-phase registration UI, code entry form                    |
+| 43  | `43-add-user-roles`             | Add role column (user/admin), seed admin account              |
+| 44  | `44-admin-middleware-stats-api`  | requireAdmin middleware, GET /api/admin/stats                  |
+| 45  | `45-admin-dashboard-stats-ui`   | Admin dashboard page with stat cards and charts               |
+| 46  | `46-user-management-api`        | Admin user list, role changes, disable/enable                 |
+| 47  | `47-user-management-ui`         | Users table on admin dashboard                                |
+| 48  | `48-activity-log-backend`       | ActivityLog table, auto-log actions, admin query              |
+| 49  | `49-activity-log-ui`            | Activity feed panel on admin dashboard                        |
+| 50  | `50-content-moderation-backend` | Admin CRUD on all entries, flag system                        |
+| 51  | `51-content-moderation-ui`      | Moderation tab on admin dashboard                             |
 
 ### Compare steps
 
