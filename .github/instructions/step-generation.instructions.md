@@ -19,6 +19,7 @@ When the user adds a new feature to `jvc-dev-log/` and asks to create a new step
 - For full-stack steps (11+ pattern): also include `server/`, `prisma/`, `.env.example`, `tsconfig.server.json`
 - Always include `.gitignore`
 - Never include `node_modules/`, `dist/`, `dist-server/`, `.env` (only `.env.example`)
+- **Never include `public/data/dummy-logs.json` or `public/data/dummy-users.json`** — dummy data lives only in `jvc-dev-log/` and is not part of the step folder
 
 ## 3. Write the README
 
@@ -66,9 +67,9 @@ One sentence describing what this step accomplishes.
 - Show the file path as a comment or heading before each block
 - Only show the relevant parts of files — not entire files unless they're new
 
-## 5. Add a Dummy-Log Entry
+## 5. Add a Dummy-Log Entry (jvc-dev-log only)
 
-Every step **must** also add a new entry to `public/data/dummy-logs.json`. This keeps the demo site's timeline in sync with the curriculum. Follow the existing format:
+Every step **must** add a new entry to `jvc-dev-log/public/data/dummy-logs.json`. This keeps the demo site's timeline in sync with the curriculum, but these dummy data files are **never copied into the step folder**. Follow the existing format:
 
 ```json
 {

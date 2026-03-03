@@ -14,12 +14,14 @@ When the user asks to "do step NN", follow these phases in order.
 3. **Make the code changes** in `jvc-dev-log/`.
 4. **Run `npm run build`** inside `jvc-dev-log/` to verify zero TypeScript errors.
 
-## Phase 2 — Update Demo Layer
+## Phase 2 — Update Demo Layer (jvc-dev-log only)
+
+All demo/dummy data updates happen **only inside `jvc-dev-log/`** — dummy data files are never copied into step folders.
 
 If the step adds or changes data shapes:
 
-1. **Update `src/data/demo-data.ts`** — keep DemoData functions in sync with real API shapes.
-2. **Add an entry to `public/data/dummy-logs.json`** for this step. Every step gets its own log entry following the existing format:
+1. **Update `jvc-dev-log/src/data/demo-data.ts`** — keep DemoData functions in sync with real API shapes.
+2. **Add an entry to `jvc-dev-log/public/data/dummy-logs.json`** for this step. Every step gets its own log entry following the existing format:
    - `id`: next sequential integer
    - `title`: `"Step NN – Step Title"`
    - `summary`: 3–5 sentence recap of the step written in JV's voice — casual, encouraging, includes a dad/programming joke, ends with `Keep coding, keep reading ~jv`
@@ -27,13 +29,15 @@ If the step adds or changes data shapes:
    - `tags`: 3–4 lowercase kebab-case keywords relevant to the step's concepts
    - `createdAt` / `updatedAt`: ISO timestamp, one day after the previous entry, at `T09:00:00.000Z`
    - `author`: `"jv"` (or `null` for pre-step-31 entries that lack the field)
-3. **Update `public/data/dummy-users.json`** — only if User model changes.
+3. **Update `jvc-dev-log/public/data/dummy-users.json`** — only if User model changes.
 4. **Rebuild** to confirm demo-data compiles.
+
+> **Important:** Dummy data files (`dummy-logs.json`, `dummy-users.json`) and `demo-data.ts` are **not included** in step folders. They live exclusively in `jvc-dev-log/`.
 
 ## Phase 3 — Create Step Folder
 
 1. **Copy only changed/new files** into `NN-step-name/` (see `step-generation.instructions.md` for README template).
-2. The step folder contains **only the diff** — files the learner would modify — plus structural files (`package.json`, configs, `index.html`).
+2. The step folder contains **only the diff** — files the learner would modify — plus structural files (`package.json`, configs, `index.html`). **Do not include dummy data files** (`dummy-logs.json`, `dummy-users.json`) or `demo-data.ts`.
 3. **Write the step README** following the standard template.
 
 ## Phase 4 — Deploy GitHub Pages

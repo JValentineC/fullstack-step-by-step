@@ -306,5 +306,15 @@
     "createdAt": "2026-03-05T09:00:00.000Z",
     "updatedAt": "2026-03-05T09:00:00.000Z",
     "author": "jv"
+  },
+  {
+    "id": 35,
+    "title": "Step 35 – User Profiles Frontend",
+    "summary": "Hey interns! Step 35 — we built the profile UI! There's now a /u/:handle route that shows a profile card with the user's display name, bio, avatar, and join date. If you're looking at your own profile you get an Edit button that opens an inline form. The Header links your name to your profile page too. Why did the React component break up with the profile page? It said 'You're not my type!' Keep coding, keep reading ~jv",
+    "mood": "proud",
+    "tags": ["profiles", "frontend", "routing", "components"],
+    "createdAt": "2026-03-06T09:00:00.000Z",
+    "updatedAt": "2026-03-06T09:00:00.000Z",
+    "author": "jv"
   }
 ]
