@@ -9,9 +9,9 @@ export NODE_ENV=production
 export PORT=8080
 
 # Load environment variables from .env if present
-if [ -f /home/private/.env ]; then
+if [ -f /home/protected/.env ]; then
   set -a
-  . /home/private/.env
+  . /home/protected/.env
   set +a
 fi
 

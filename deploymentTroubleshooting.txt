@@ -1,0 +1,155 @@
+================================================================================
+  NFSN DEPLOYMENT TROUBLESHOOTING LOG — March 2, 2026
+  Site: icstarslog.nfshost.com
+================================================================================
+
+PROJECT: jvc-dev-log (DevLog fullstack app)
+STACK:   React + Express + mysql2 + NFSN (FreeBSD)
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUE 1: Prisma engine fails on FreeBSD
+────────────────────────────────────────────────────────────────────────────────
+SYMPTOM:
+  Deploy script ran `npx prisma@5 generate` on NFSN server (FreeBSD).
+  Error: "Failed to fetch sha256 checksum ... freebsd14/libquery_engine.so.node
+          — 404 Not Found"
+  Prisma has no prebuilt binary for FreeBSD.
+
+ROOT CAUSE:
+  The app was migrated from Prisma to raw mysql2 queries, but the deploy
+  scripts still had Prisma steps and @prisma/client was in `dependencies`.
+
+FIX:
+  1. Moved @prisma/client and prisma from dependencies → devDependencies
+     in package.json (not needed at runtime on server).
+  2. Removed `npx prisma@5 generate` from deploy-nfsn.ps1 and deploy-nfsn.sh.
+  3. Removed prisma/ directory upload from deploy scripts.
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUE 2: run.sh had Windows CRLF line endings
+────────────────────────────────────────────────────────────────────────────────
+SYMPTOM:
+  Daemon showed "Starting (X failures)" but server worked fine via manual SSH.
+  The .env sourcing silently failed because \r corrupted shell commands.
+  Server exited with "Missing required env var: CORS_ORIGIN".
+
+ROOT CAUSE:
+  run.sh was edited on Windows and saved with CRLF (\r\n). FreeBSD's /bin/sh
+  doesn't strip \r, so every line had an invisible trailing \r.
+  Example: `export PORT=8080\r` — the shell set PORT to "8080\r", not "8080".
+
+FIX:
+  1. Converted run.sh to Unix LF line endings locally:
+       $c = [System.IO.File]::ReadAllText($path)
+       $c = $c.Replace("`r`n", "`n")
+       [System.IO.File]::WriteAllBytes($path, [System.Text.Encoding]::UTF8.GetBytes($c))
+  2. Added auto-conversion to deploy-nfsn.ps1 (runs before every deploy).
+  3. Added server-side `sed -i '' 's/\r$//'` cleanup in deploy SSH step.
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUE 3: dist/ and dist-server/ had 700 permissions (owner-only)
+────────────────────────────────────────────────────────────────────────────────
+SYMPTOM:
+  Daemon log: "Error: Cannot find module '/home/public/dist-server/index.js'"
+  But the file clearly existed (verified via SSH as icstarslog user).
+  Manual `run.sh` test via SSH worked perfectly.
+
+ROOT CAUSE:
+  `scp -r` from Windows created dist/ and dist-server/ with 700 (drwx------)
+  permissions. The NFSN daemon ran as user `web` (uid 25000), but files were
+  owned by `icstarslog` (uid 290775). The `web` user had zero read access.
+
+  Debug wrapper confirmed:
+    whoami: web
+    ls: /home/public/dist-server/: Permission denied
+
+FIX:
+  1. Ran: chmod -R 755 /home/public/dist /home/public/dist-server
+  2. Added `chmod -R 755 dist dist-server` to deploy scripts (both .ps1 and .sh)
+     so every future deploy sets correct permissions.
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUE 4: .env in /home/private/ not readable by daemon user
+────────────────────────────────────────────────────────────────────────────────
+SYMPTOM:
+  After fixing permissions, daemon log changed to:
+    "Missing required env var: CORS_ORIGIN"
+  The .env file existed but wasn't being loaded.
+
+ROOT CAUSE:
+  NFSN directory access model:
+    /home/private/    → readable ONLY by SSH user (icstarslog)
+    /home/protected/  → readable by SSH user AND web/daemon user
+    /home/public/     → readable by everyone
+
+  The .env was in /home/private/ — the `web` daemon user couldn't read it.
+
+FIX:
+  1. Copied .env: cp /home/private/.env /home/protected/.env
+  2. Updated run.sh to source from /home/protected/.env instead.
+  3. Updated deploy scripts to reference /home/protected/.env.
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUE 5 (FINAL FIX): Daemon "Run As" user
+────────────────────────────────────────────────────────────────────────────────
+SYMPTOM:
+  Even after all fixes, daemon still failed when running as `web` user.
+
+ROOT CAUSE:
+  The `web` user has limited access across NFSN directories. Running the
+  daemon as the site owner (`icstarslog`) avoids all permission issues since
+  the files are owned by that user.
+
+FIX:
+  In the NFSN daemon config, changed "Run Daemon As" from `web` to the
+  site owner. The daemon started immediately with no failures.
+
+  NFSN Daemon Config:
+    Tag:               node
+    Command:           /home/protected/run.sh
+    Run Daemon As:     (site owner, NOT web)
+
+================================================================================
+  NFSN DEPLOYMENT CHECKLIST (for future deploys)
+================================================================================
+
+DEPLOY COMMAND:
+  powershell -ExecutionPolicy Bypass -File .\deploy-nfsn.ps1
+
+WHAT THE SCRIPT DOES:
+  1. Converts run.sh to LF line endings (auto)
+  2. Builds frontend (npm run build)
+  3. Builds server (npm run build:server)
+  4. Uploads dist-server/, dist/, package.json, package-lock.json, run.sh
+  5. Runs npm install --omit=dev on server
+  6. Sets chmod -R 755 on dist/ and dist-server/
+  7. Sets chmod +x on run.sh
+
+AFTER DEPLOYING:
+  - If daemon shows failures, Remove and Re-Add it in NFSN panel
+  - NFSN uses exponential backoff on failures — removing resets the counter
+  - Test: curl https://icstarslog.nfshost.com/api/health
+
+IMPORTANT NFSN NOTES:
+  - Server OS is FreeBSD — no Prisma native binaries available
+  - App uses mysql2 directly (not Prisma ORM) for database queries
+  - .env lives at /home/protected/.env (NOT /home/private/)
+  - Daemon must NOT run as `web` — run as site owner instead
+  - run.sh MUST have Unix (LF) line endings, never CRLF
+  - scp from Windows creates dirs with 700 perms — always chmod after upload
+  - JWT_SECRET was regenerated on 2026-03-02 (old tokens invalidated)
+
+SSH ACCESS:
+  ssh jvc_icstarslog@ssh.nyc1.nearlyfreespeech.net
+
+ENV VARS (/home/protected/.env):
+  NODE_ENV=production
+  PORT=8080
+  CORS_ORIGIN=https://icstarslog.nfshost.com
+  DATABASE_URL="mysql://..."
+  JWT_SECRET="<random-base64>"
+
+PROXY CONFIG:
+  Protocol: http | Base URI: / | Port: 8080
+
+================================================================================

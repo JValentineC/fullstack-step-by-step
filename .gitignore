@@ -32,3 +32,6 @@ Thumbs.db
 
 # Non-tutorial folders
 devlog59/
+
+# Learning design docs (internal only)
+**/Learning_Design/

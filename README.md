@@ -158,8 +158,8 @@ Every step folder has a matching `tests/NN-step-name/` folder with:
 | Styling    | Tailwind CSS 4, daisyUI 5                 |
 | Routing    | React Router (HashRouter → BrowserRouter) |
 | Backend    | Node.js, Express                          |
-| Database   | SQL Server (MSSQL), Prisma ORM            |
-| Deployment | GitHub Pages (frontend), TBD (backend)    |
+| Database   | MySQL / MariaDB (raw mysql2 driver)       |
+| Deployment | GitHub Pages (frontend), NFSN (backend)   |
 | Testing    | Vitest, React Testing Library             |
 | CI         | GitHub Actions                            |
 

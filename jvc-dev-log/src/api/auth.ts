@@ -17,6 +17,13 @@ export interface AuthUser {
   avatarUrl: string | null;
 }
 
+export interface RegisteredUser {
+  id: number;
+  username: string;
+  createdAt: string;
+  entryCount: number;
+}
+
 export interface AuthResponse {
   token: string;
   user: AuthUser;
@@ -68,5 +75,20 @@ export async function fetchMe(token: string): Promise<AuthUser> {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) throw new Error("Not authenticated");
+  return res.json();
+}
+
+export async function fetchUsers(token: string): Promise<RegisteredUser[]> {
+  if (DEMO) return DemoData.fetchUsers();
+
+  const res = await fetch(`${BASE}/users`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) {
+    const body = await res
+      .json()
+      .catch(() => ({ error: "Failed to load users" }));
+    throw new Error(body.error ?? `Failed to load users: ${res.status}`);
+  }
   return res.json();
 }

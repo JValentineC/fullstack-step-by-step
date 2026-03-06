@@ -17,6 +17,7 @@ import SortControls from "./components/SortControls";
 import Pagination from "./components/Pagination";
 import Toast from "./components/Toast";
 import LoginPage from "./components/LoginPage";
+import UsersPage from "./components/UsersPage";
 import SkipLink from "./components/SkipLink";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./components/NotFound";
@@ -548,7 +549,9 @@ function App() {
 
     setEntries((prev) =>
       prev.map((e) =>
-        e.id === id ? { ...e, title, summary: content, mood, tags, visibility } : e,
+        e.id === id
+          ? { ...e, title, summary: content, mood, tags, visibility }
+          : e,
       ),
     );
     navigate("/entries");
@@ -636,6 +639,14 @@ function App() {
           }
         />
         <Route path="/u/:handle" element={<ProfilePage />} />
+        <Route
+          path="/users"
+          element={
+            <RequireAuth>
+              <UsersPage />
+            </RequireAuth>
+          }
+        />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

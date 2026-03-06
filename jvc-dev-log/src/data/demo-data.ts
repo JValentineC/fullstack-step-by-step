@@ -78,8 +78,18 @@ async function loadLogs(): Promise<Entry[]> {
 
   // 3. Merge: local entries override seeds with the same id
   const merged = new Map<number, Entry>();
-  for (const e of seed) merged.set(e.id, { ...e, author: e.author ?? null, visibility: e.visibility ?? 'PUBLIC' });
-  for (const e of local) merged.set(e.id, { ...e, author: e.author ?? null, visibility: e.visibility ?? 'PUBLIC' });
+  for (const e of seed)
+    merged.set(e.id, {
+      ...e,
+      author: e.author ?? null,
+      visibility: e.visibility ?? "PUBLIC",
+    });
+  for (const e of local)
+    merged.set(e.id, {
+      ...e,
+      author: e.author ?? null,
+      visibility: e.visibility ?? "PUBLIC",
+    });
 
   logsCache = Array.from(merged.values()).sort(
     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
@@ -216,7 +226,13 @@ export const DemoData = {
 
   async updateEntry(
     id: number,
-    body: { title: string; summary: string; mood: string; tags: string; visibility?: string },
+    body: {
+      title: string;
+      summary: string;
+      mood: string;
+      tags: string;
+      visibility?: string;
+    },
   ): Promise<ApiEntry | null> {
     const logs = await loadLogs();
     const idx = logs.findIndex((e) => e.id === id);
@@ -234,7 +250,7 @@ export const DemoData = {
         : [],
       updatedAt: new Date().toISOString(),
       author: logs[idx].author,
-      visibility: body.visibility ?? logs[idx].visibility ?? 'PUBLIC',
+      visibility: body.visibility ?? logs[idx].visibility ?? "PUBLIC",
     };
     logs[idx] = updated;
     persistLogs(logs);
@@ -255,7 +271,18 @@ export const DemoData = {
   async login(
     username: string,
     password: string,
-  ): Promise<{ token: string; user: { id: number; username: string; email: string; handle: string; displayName: string | null; bio: string | null; avatarUrl: string | null } }> {
+  ): Promise<{
+    token: string;
+    user: {
+      id: number;
+      username: string;
+      email: string;
+      handle: string;
+      displayName: string | null;
+      bio: string | null;
+      avatarUrl: string | null;
+    };
+  }> {
     const users = await loadUsers();
     const user = users.find(
       (u) => u.username === username && u.password === password,
@@ -264,7 +291,13 @@ export const DemoData = {
 
     // Fake JWT — just a base64 blob so the rest of the app is happy
     const fakeToken = btoa(
-      JSON.stringify({ id: user.id, username: user.username, email: user.email, handle: user.handle, demo: true }),
+      JSON.stringify({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        handle: user.handle,
+        demo: true,
+      }),
     );
     localStorage.setItem(AUTH_KEY, fakeToken);
     return {
@@ -285,7 +318,18 @@ export const DemoData = {
     username: string,
     email: string,
     password: string,
-  ): Promise<{ token: string; user: { id: number; username: string; email: string; handle: string; displayName: string | null; bio: string | null; avatarUrl: string | null } }> {
+  ): Promise<{
+    token: string;
+    user: {
+      id: number;
+      username: string;
+      email: string;
+      handle: string;
+      displayName: string | null;
+      bio: string | null;
+      avatarUrl: string | null;
+    };
+  }> {
     const users = await loadUsers();
     if (users.find((u) => u.username === username)) {
       throw new Error("Username already taken");
@@ -295,7 +339,10 @@ export const DemoData = {
       username,
       email,
       password,
-      handle: username.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+      handle: username
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, ""),
       displayName: username,
       bio: null,
       avatarUrl: null,
@@ -331,7 +378,17 @@ export const DemoData = {
     };
   },
 
-  async fetchMe(token: string): Promise<{ id: number; username: string; email: string; handle: string; displayName: string | null; bio: string | null; avatarUrl: string | null }> {
+  async fetchMe(
+    token: string,
+  ): Promise<{
+    id: number;
+    username: string;
+    email: string;
+    handle: string;
+    displayName: string | null;
+    bio: string | null;
+    avatarUrl: string | null;
+  }> {
     try {
       const payload = JSON.parse(atob(token));
       // Look up full user data from cache if available
@@ -340,8 +397,9 @@ export const DemoData = {
       return {
         id: payload.id,
         username: payload.username,
-        email: payload.email ?? '',
-        handle: user?.handle ?? payload.handle ?? payload.username.toLowerCase(),
+        email: payload.email ?? "",
+        handle:
+          user?.handle ?? payload.handle ?? payload.username.toLowerCase(),
         displayName: user?.displayName ?? null,
         bio: user?.bio ?? null,
         avatarUrl: user?.avatarUrl ?? null,
@@ -353,7 +411,17 @@ export const DemoData = {
 
   /* ---------- profiles ------------------------------------------- */
 
-  async fetchProfile(handle: string): Promise<{ id: number; username: string; handle: string; displayName: string | null; bio: string | null; avatarUrl: string | null; createdAt: string }> {
+  async fetchProfile(
+    handle: string,
+  ): Promise<{
+    id: number;
+    username: string;
+    handle: string;
+    displayName: string | null;
+    bio: string | null;
+    avatarUrl: string | null;
+    createdAt: string;
+  }> {
     const users = await loadUsers();
     const user = users.find((u) => u.handle === handle.toLowerCase());
     if (!user) throw new Error("User not found");
@@ -368,7 +436,20 @@ export const DemoData = {
     };
   },
 
-  async updateProfile(data: { displayName?: string | null; bio?: string | null; avatarUrl?: string | null }): Promise<{ id: number; username: string; email: string; handle: string; displayName: string | null; bio: string | null; avatarUrl: string | null; createdAt: string }> {
+  async updateProfile(data: {
+    displayName?: string | null;
+    bio?: string | null;
+    avatarUrl?: string | null;
+  }): Promise<{
+    id: number;
+    username: string;
+    email: string;
+    handle: string;
+    displayName: string | null;
+    bio: string | null;
+    avatarUrl: string | null;
+    createdAt: string;
+  }> {
     const auth = localStorage.getItem(AUTH_KEY);
     if (!auth) throw new Error("Not authenticated");
     const payload = JSON.parse(atob(auth));
@@ -376,7 +457,8 @@ export const DemoData = {
     const user = users.find((u) => u.id === payload.id);
     if (!user) throw new Error("User not found");
 
-    if (data.displayName !== undefined) user.displayName = data.displayName ?? user.username;
+    if (data.displayName !== undefined)
+      user.displayName = data.displayName ?? user.username;
     if (data.bio !== undefined) user.bio = data.bio ?? null;
     if (data.avatarUrl !== undefined) user.avatarUrl = data.avatarUrl ?? null;
 
@@ -395,19 +477,38 @@ export const DemoData = {
     };
   },
 
+  /* ---------- users ---------------------------------------------- */
+
+  async fetchUsers(): Promise<
+    { id: number; username: string; createdAt: string; entryCount: number }[]
+  > {
+    const users = await loadUsers();
+
+    return users.map((u) => ({
+      id: u.id,
+      username: u.username,
+      createdAt: u.createdAt,
+      entryCount: 0, // demo mode has no user-entry relationship
+    }));
+  },
+
   /* ---------- friendships ---------------------------------------- */
 
   async sendFriendRequest(targetUserId: number): Promise<DemoFriendship> {
     const userId = getDemoUserId();
-    if (targetUserId === userId) throw new Error("Cannot send a friend request to yourself");
+    if (targetUserId === userId)
+      throw new Error("Cannot send a friend request to yourself");
 
     const friendships = loadFriendships();
     const [userAId, userBId] = pairNormalize(userId, targetUserId);
-    const existing = friendships.find((f) => f.userAId === userAId && f.userBId === userBId);
+    const existing = friendships.find(
+      (f) => f.userAId === userAId && f.userBId === userBId,
+    );
 
     if (existing) {
       if (existing.status === "ACCEPTED") throw new Error("Already friends");
-      if (existing.status === "PENDING") throw new Error("Friend request already pending");
+      if (existing.status === "PENDING")
+        throw new Error("Friend request already pending");
       // DECLINED — allow re-request
       existing.status = "PENDING";
       existing.updatedAt = new Date().toISOString();
@@ -429,13 +530,18 @@ export const DemoData = {
     return newFriendship;
   },
 
-  async respondToFriendRequest(friendshipId: number, status: "ACCEPTED" | "DECLINED"): Promise<DemoFriendship> {
+  async respondToFriendRequest(
+    friendshipId: number,
+    status: "ACCEPTED" | "DECLINED",
+  ): Promise<DemoFriendship> {
     const userId = getDemoUserId();
     const friendships = loadFriendships();
     const friendship = friendships.find((f) => f.id === friendshipId);
     if (!friendship) throw new Error("Friendship not found");
-    if (friendship.status !== "PENDING") throw new Error("Can only respond to PENDING requests");
-    if (friendship.userAId !== userId && friendship.userBId !== userId) throw new Error("Not your friendship request");
+    if (friendship.status !== "PENDING")
+      throw new Error("Can only respond to PENDING requests");
+    if (friendship.userAId !== userId && friendship.userBId !== userId)
+      throw new Error("Not your friendship request");
 
     friendship.status = status;
     friendship.updatedAt = new Date().toISOString();
@@ -449,7 +555,8 @@ export const DemoData = {
     const idx = friendships.findIndex((f) => f.id === friendshipId);
     if (idx === -1) throw new Error("Friendship not found");
     const friendship = friendships[idx];
-    if (friendship.userAId !== userId && friendship.userBId !== userId) throw new Error("Not your friendship");
+    if (friendship.userAId !== userId && friendship.userBId !== userId)
+      throw new Error("Not your friendship");
     friendships.splice(idx, 1);
     persistFriendships(friendships);
   },
@@ -461,27 +568,43 @@ export const DemoData = {
       (f) => f.userAId === userId || f.userBId === userId,
     );
     if (status) {
-      friendships = friendships.filter((f) => f.status === status.toUpperCase());
+      friendships = friendships.filter(
+        (f) => f.status === status.toUpperCase(),
+      );
     }
     // Enrich with usernames/handles
-    return friendships.map((f) => {
-      const ua = users.find((u) => u.id === f.userAId);
-      const ub = users.find((u) => u.id === f.userBId);
-      return {
-        ...f,
-        userAUsername: ua?.username,
-        userAHandle: ua?.handle,
-        userBUsername: ub?.username,
-        userBHandle: ub?.handle,
-      };
-    }).sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+    return friendships
+      .map((f) => {
+        const ua = users.find((u) => u.id === f.userAId);
+        const ub = users.find((u) => u.id === f.userBId);
+        return {
+          ...f,
+          userAUsername: ua?.username,
+          userAHandle: ua?.handle,
+          userBUsername: ub?.username,
+          userBHandle: ub?.handle,
+        };
+      })
+      .sort(
+        (a, b) =>
+          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      );
   },
 
-  async fetchFriendshipStatus(otherUserId: number): Promise<{ status: string; id?: number; userAId?: number; userBId?: number }> {
+  async fetchFriendshipStatus(
+    otherUserId: number,
+  ): Promise<{
+    status: string;
+    id?: number;
+    userAId?: number;
+    userBId?: number;
+  }> {
     const userId = getDemoUserId();
     const [userAId, userBId] = pairNormalize(userId, otherUserId);
     const friendships = loadFriendships();
-    const found = friendships.find((f) => f.userAId === userAId && f.userBId === userBId);
+    const found = friendships.find(
+      (f) => f.userAId === userAId && f.userBId === userBId,
+    );
     if (!found) return { status: "NONE" };
     return found;
   },

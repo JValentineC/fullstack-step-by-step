@@ -35,11 +35,18 @@ scp -r dist "$NFSN_USER@$NFSN_SSH_HOST:$NFSN_SITE_DIR/"
 # Upload package.json + lock file (for npm install on server)
 scp package.json package-lock.json "$NFSN_USER@$NFSN_SSH_HOST:$NFSN_SITE_DIR/"
 
+# Sync the daemon startup script
+rsync -avz run.sh "$NFSN_USER@$NFSN_SSH_HOST:$NFSN_SITE_DIR/run.sh"
+rsync -avz run.sh "$NFSN_USER@$NFSN_SSH_HOST:/home/protected/run.sh"
+
 # ── Install production deps on NFSN ──────────────────
 echo "4/4  Installing production dependencies on NFSN..."
 ssh "$NFSN_USER@$NFSN_SSH_HOST" << 'EOF'
   cd /home/public
   npm install --omit=dev
+  chmod -R 755 dist dist-server
+  chmod +x run.sh
+  chmod +x /home/protected/run.sh
 EOF
 
 echo ""
