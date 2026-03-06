@@ -235,7 +235,7 @@
   },
   {
     "id": 27,
-    "title": "Bonus – Dummy Data & Demo Mode for GitHub Pages",
+    "title": "Step 27 – Dummy Data & Demo Mode for GitHub Pages",
     "summary": "Hey interns! We just added a full demo mode so the GitHub Pages version works without a backend. Created dummy-logs.json with a log entry for every step, dummy-users.json with sample credentials, and a DemoData layer that uses localStorage to cache new entries. The api/entries.ts and api/auth.ts files now auto-detect when VITE_API_URL is missing and route everything through the demo layer. Why did the JSON file break up with the database? It needed more space! Keep coding, keep reading ~jv",
     "mood": "happy",
     "tags": ["demo-mode", "dummy-data", "localStorage", "github-pages"],
@@ -244,7 +244,7 @@
   },
   {
     "id": 28,
-    "title": "Bonus – Demo Credentials on Login Page",
+    "title": "Step 28 – Demo Credentials on Login Page",
     "summary": "Sup interns! Quick UX win — we added a credentials table to the login page that only shows up in demo mode. Now anyone visiting the GitHub Pages version can see the sample usernames and passwords right there, no guessing required. It's conditionally rendered with a simple DEMO flag check. What did the login form say to the user? 'I promise I won't judge your password.' Keep coding, keep reading ~jv",
     "mood": "curious",
     "tags": ["ux", "demo-mode", "login", "conditional-rendering"],
@@ -253,7 +253,7 @@
   },
   {
     "id": 29,
-    "title": "Bonus – Accordion Entry Cards & Oldest-First Sort",
+    "title": "Step 29 – Accordion Entry Cards & Oldest-First Sort",
     "summary": "Yo interns! We swapped out the full card layout for daisyUI accordion/collapse components — now you can see way more entries on screen and expand whichever one you want to read. Also flipped the default sort from newest-first to oldest-first so the entries flow like a story from Step 1 to Step 26. Why did the accordion go to therapy? It had too many things bottled up inside! Keep coding, keep reading ~jv",
     "mood": "happy",
     "tags": ["daisyui", "accordion", "sorting", "ux"],
@@ -262,7 +262,7 @@
   },
   {
     "id": 30,
-    "title": "Bonus – Responsive Navbar with Hamburger Menu",
+    "title": "Step 30 – Responsive Navbar with Hamburger Menu",
     "summary": "What's up interns! We made the navbar responsive — on desktop you get the classic horizontal text links, and on mobile it collapses into a hamburger menu dropdown with SVG icons next to each link. Home gets a house, Entries gets a document, New Entry gets a plus, About gets an info circle, and Log In/Out get door arrows. Clean and compact. Why did the hamburger menu feel so important? Because it held everything together! Keep coding, keep reading ~jv",
     "mood": "happy",
     "tags": ["responsive", "hamburger-menu", "navbar", "svg-icons", "mobile"],
@@ -271,26 +271,42 @@
   },
   {
     "id": 31,
-    "title": "Step 31 – Show Entry Author",
-    "summary": "Hey interns! In Step 31 we added a LEFT JOIN between Entry and User so every API response now includes an author field with the username of whoever created it. On the frontend, EntryCard conditionally renders 'by username' right next to the date. Entries without a userId gracefully show nothing — that's the beauty of LEFT JOIN. Why did the SQL query break up with the subquery? It found a better JOIN! Keep coding, keep reading ~jv",
+    "title": "Step 31 – User Registration Tracking & NFSN Deployment Debugging",
+    "summary": "Ugh interns… this one was a BATTLE. We got user registration tracking wired up, but deploying to NearlyFreeSpeech turned into a full-blown debugging marathon. Five stacked issues: Prisma trying to build FreeBSD binaries (we don't even use Prisma anymore!), Windows CRLF line endings breaking the shell script, scp creating directories with 700 permissions so the daemon user couldn't read them, the .env file sitting in /home/private where the daemon can't reach, and the daemon running as the wrong user. Five layers of pain. But we found every single one with a debug wrapper script and fixed them all. The backend is LIVE and registration works. Lesson: deployment bugs stack up — solve them one at a time, log everything, and never trust file permissions from Windows. Why did the DevOps engineer bring a ladder to work? Because the deployment had too many layers! Keep coding, keep reading ~jv",
+    "mood": "frustrated",
+    "tags": [
+      "nfsn",
+      "deployment",
+      "debugging",
+      "permissions",
+      "freebsd",
+      "registration"
+    ],
+    "createdAt": "2026-03-02T22:00:00.000Z",
+    "updatedAt": "2026-03-02T22:00:00.000Z"
+  },
+  {
+    "id": 32,
+    "title": "Step 32 – Show Entry Author",
+    "summary": "Hey interns! In Step 32 we added a LEFT JOIN between Entry and User so every API response now includes an author field with the username of whoever created it. On the frontend, EntryCard conditionally renders 'by username' right next to the date. Entries without a userId gracefully show nothing — that's the beauty of LEFT JOIN. Why did the SQL query break up with the subquery? It found a better JOIN! Keep coding, keep reading ~jv",
     "mood": "happy",
     "tags": ["sql", "join", "author", "typescript"],
     "createdAt": "2026-03-03T09:00:00.000Z",
     "updatedAt": "2026-03-03T09:00:00.000Z"
   },
   {
-    "id": 32,
-    "title": "Step 32 – Add Email to User",
-    "summary": "Sup interns! Step 32 — we added an email column to the User table with a unique constraint, updated the registration endpoint to require and validate email, and added an email field to the frontend registration form. The demo layer and dummy data got updated too. Now every user has an email on file — one step closer to verification. Why did the email go to therapy? It had too many attachment issues! Keep coding, keep reading ~jv",
+    "id": 33,
+    "title": "Step 33 – Add Email to User",
+    "summary": "Sup interns! Step 33 — we added an email column to the User table with a unique constraint, updated the registration endpoint to require and validate email, and added an email field to the frontend registration form. The demo layer and dummy data got updated too. Now every user has an email on file — one step closer to verification. Why did the email go to therapy? It had too many attachment issues! Keep coding, keep reading ~jv",
     "mood": "curious",
     "tags": ["email", "user-model", "registration", "validation"],
     "createdAt": "2026-03-03T10:00:00.000Z",
     "updatedAt": "2026-03-03T10:00:00.000Z"
   },
   {
-    "id": 33,
-    "title": "Step 33 – Social Schema Migrations",
-    "summary": "Hey interns! Step 33 is our prep step — we added handle, displayName, bio, and avatarUrl to the User table, a visibility column to Entry, and created the Friendship table. No new UI yet — just laying the foundation for profiles, friend requests, and private entries. Think of it like pouring concrete before building the house. Why did the database administrator leave his wife? She had too many one-to-many relationships! Keep coding, keep reading ~jv",
+    "id": 34,
+    "title": "Step 34 – Social Schema Migrations",
+    "summary": "Hey interns! Step 34 is our prep step — we added handle, displayName, bio, and avatarUrl to the User table, a visibility column to Entry, and created the Friendship table. No new UI yet — just laying the foundation for profiles, friend requests, and private entries. Think of it like pouring concrete before building the house. Why did the database administrator leave his wife? She had too many one-to-many relationships! Keep coding, keep reading ~jv",
     "mood": "proud",
     "tags": ["schema", "migration", "prisma", "social"],
     "createdAt": "2026-03-04T09:00:00.000Z",
@@ -298,9 +314,9 @@
     "author": "jv"
   },
   {
-    "id": 34,
-    "title": "Step 34 – User Profiles Backend",
-    "summary": "Hey interns! Step 34 — we built the profile API! GET /api/users/:handle looks up any user by their handle slug, and PUT /api/users/me/profile lets you update your own displayName, bio, and avatarUrl. The demo layer got matching functions so GitHub Pages still works offline. Why do back-end developers make great DJs? Because they know how to handle requests! Keep coding, keep reading ~jv",
+    "id": 35,
+    "title": "Step 35 – User Profiles Backend",
+    "summary": "Hey interns! Step 35 — we built the profile API! GET /api/users/:handle looks up any user by their handle slug, and PUT /api/users/me/profile lets you update your own displayName, bio, and avatarUrl. The demo layer got matching functions so GitHub Pages still works offline. Why do back-end developers make great DJs? Because they know how to handle requests! Keep coding, keep reading ~jv",
     "mood": "happy",
     "tags": ["profiles", "api", "express", "crud"],
     "createdAt": "2026-03-05T09:00:00.000Z",
@@ -308,9 +324,9 @@
     "author": "jv"
   },
   {
-    "id": 35,
-    "title": "Step 35 – User Profiles Frontend",
-    "summary": "Hey interns! Step 35 — we built the profile UI! There's now a /u/:handle route that shows a profile card with the user's display name, bio, avatar, and join date. If you're looking at your own profile you get an Edit button that opens an inline form. The Header links your name to your profile page too. Why did the React component break up with the profile page? It said 'You're not my type!' Keep coding, keep reading ~jv",
+    "id": 36,
+    "title": "Step 36 – User Profiles Frontend",
+    "summary": "Hey interns! Step 36 — we built the profile UI! There's now a /u/:handle route that shows a profile card with the user's display name, bio, avatar, and join date. If you're looking at your own profile you get an Edit button that opens an inline form. The Header links your name to your profile page too. Why did the React component break up with the profile page? It said 'You're not my type!' Keep coding, keep reading ~jv",
     "mood": "proud",
     "tags": ["profiles", "frontend", "routing", "components"],
     "createdAt": "2026-03-06T09:00:00.000Z",
@@ -318,13 +334,23 @@
     "author": "jv"
   },
   {
-    "id": 36,
-    "title": "Step 36 -- Entry Visibility",
-    "summary": "Hey interns! Step 36 -- we added a visibility selector to the entry form so you can mark entries as Public, Friends only, or Private. The card now shows a little lock or people icon when it's not public. The backend accepts and stores the visibility value on create and update too. Why did the private entry refuse to go to the party? Because it didn't want to be seen in public! Keep coding, keep reading ~jv",
+    "id": 37,
+    "title": "Step 37 -- Entry Visibility",
+    "summary": "Hey interns! Step 37 -- we added a visibility selector to the entry form so you can mark entries as Public, Friends only, or Private. The card now shows a little lock or people icon when it's not public. The backend accepts and stores the visibility value on create and update too. Why did the private entry refuse to go to the party? Because it didn't want to be seen in public! Keep coding, keep reading ~jv",
     "mood": "curious",
     "tags": ["visibility", "forms", "privacy", "backend"],
     "createdAt": "2026-03-07T09:00:00.000Z",
     "updatedAt": "2026-03-07T09:00:00.000Z",
+    "author": "jv"
+  },
+  {
+    "id": 38,
+    "title": "Step 38 -- Friendships Backend",
+    "summary": "Hey interns! Step 38 -- we built the entire friendship API from scratch! POST /request sends a friend request with pair normalization (lower id always goes in userAId), PUT /:id/respond lets you accept or decline, DELETE /:id cancels or removes, and GET / lists all your friendships with optional status filtering. There's even a GET /status/:userId to check your relationship with anyone. Why did the two API endpoints become friends? Because they had great chemistry -- one always sent the request and the other always responded! Keep coding, keep reading ~jv",
+    "mood": "proud",
+    "tags": ["friendships", "api", "pair-normalization", "crud"],
+    "createdAt": "2026-03-08T09:00:00.000Z",
+    "updatedAt": "2026-03-08T09:00:00.000Z",
     "author": "jv"
   }
 ]
