@@ -17,14 +17,16 @@ Add a **profile image** inside the `<header>`, displayed before your name. The i
 
 ## Steps
 
-### 1. Start from a copy of Step 02
+### 1. Install and explore
 
-Copy your Step 02 folder (or start fresh). Install dependencies:
+This folder already contains the completed code from Step 02 -- clean Home and About page with semantic HTML. Install dependencies and start the dev server:
 
 ```bash
-cd 03-header-with-profile-photo
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Add your photo to `public/`
 

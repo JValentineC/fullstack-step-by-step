@@ -18,15 +18,11 @@ function TagFilter({ onTagChange }: TagFilterProps) {
   }, [])
 
   function handleChange(tag: string) {
-    const next = new URLSearchParams(searchParams)
     if (tag) {
-      next.set('tag', tag)
+      setSearchParams({ tag })
     } else {
-      next.delete('tag')
+      setSearchParams({})
     }
-    // Reset to page 1 when tag changes
-    next.delete('page')
-    setSearchParams(next)
     onTagChange(tag)
   }
 

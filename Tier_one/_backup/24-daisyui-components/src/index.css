@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* ── daisyUI theme config ──────────────────────────── */
+/* Default theme is "light". DaisyUI auto-applies dark
+   theme when prefers-color-scheme: dark is detected.   */
+
+/* ── Skip link (a11y — kept from step 22) ─────────── */
+
+.skip-link {
+  @apply absolute -left-[9999px] top-0 z-[9999] px-4 py-2 bg-primary text-primary-content font-semibold no-underline;
+}
+
+.skip-link:focus {
+  @apply left-0;
+}

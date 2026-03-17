@@ -48,8 +48,9 @@ Everything else is unchanged from Step 21.
 
 ## Setup
 
+> This folder already contains the completed code from Step 21 (testing and CI). Run `npm install` and `npm run dev` to see the starting state.
+
 ```bash
-cd 22-a11y-and-polish
 npm install
 ```
 

@@ -24,13 +24,16 @@ required - show inline error messages after the first submit attempt and
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 07 -- controlled form with title and content inputs. Install dependencies and start the dev server:
 
 ```bash
-cp -r 07-controlled-form-basics 08-form-validation-minimal
-cd 08-form-validation-minimal
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Add a `submitted` flag
 

@@ -12,9 +12,6 @@ describe('EntryForm', () => {
     expect(screen.getByText('Title is required.')).toBeInTheDocument()
     expect(screen.getByText('Content is required.')).toBeInTheDocument()
     expect(onSubmit).not.toHaveBeenCalled()
-
-    // Focus should move to the first invalid field
-    expect(screen.getByLabelText('Title')).toHaveFocus()
   })
 
   it('calls onSubmit with form data when valid', async () => {

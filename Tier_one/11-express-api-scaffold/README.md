@@ -2,10 +2,10 @@
 
 ## Goal
 
-Create a standalone **Express + TypeScript** server with a single `/api/health`
-endpoint. This is the first back-end step - no database yet. You will learn how
-to set up environment variables, CORS, and a startup guard so the server fails
-fast when configuration is missing.
+Add a **back-end Express + TypeScript** server to your existing front-end project
+with a single `/api/health` endpoint. This is the first back-end step -- no
+database yet. You will learn how to set up environment variables, CORS, and a
+startup guard so the server fails fast when configuration is missing.
 
 ## What You'll Practice
 
@@ -16,64 +16,76 @@ fast when configuration is missing.
 | Environment variables | Read config from `.env` via `dotenv` |
 | Startup guards | Exit with a helpful message when a required var is missing |
 | CORS configuration | Allow only a specific origin read from `.env` |
-| Health-check pattern | Expose `GET /api/health` - useful for monitoring and smoke tests |
+| Health-check pattern | Expose `GET /api/health` -- useful for monitoring and smoke tests |
+| Concurrently | Run front-end and back-end dev servers with a single command |
 
 ## Prerequisites
 
 - Completed **Step 10** (front-end is feature-complete for now)
-- **Node ≥ 20** and **npm** installed
+- **Node >= 20** and **npm** installed
 - A terminal / code editor you are comfortable with
 
 ## Step-by-Step Instructions
 
-### 1. Create the project folder
+### 1. Install and explore
+
+This folder already contains the completed code from Step 10 -- the frontend app
+with tags, mood fields, and state lifted to App. Install dependencies and start
+the dev server:
 
 ```bash
-mkdir 11-express-api-scaffold
-cd 11-express-api-scaffold
+npm install
+npm run dev
 ```
 
-### 2. Initialise `package.json`
+Explore the existing code. You have a working React front end -- now you will add
+a back-end API alongside it.
 
-Create `package.json` with `"type": "module"` (ESM) and four scripts:
+### 2. Install back-end dependencies
 
-```jsonc
-{
-  "name": "devlog-server-11",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev":   "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "lint":  "eslint ."
-  }
-}
-```
-
-### 3. Install dependencies
+Add Express, CORS, dotenv, and the dev tools needed for TypeScript on the server:
 
 ```bash
 npm install express cors dotenv
-npm install -D typescript tsx @types/express @types/cors @types/node
+npm install -D typescript tsx @types/express @types/cors @types/node concurrently
 ```
 
-### 4. Create `tsconfig.json`
+### 3. Create the `server/` directory
 
-```jsonc
+Your back-end code lives in `server/` (separate from the front-end `src/`):
+
+```
+server/
+  index.ts         <- Express server + health endpoint
+```
+
+### 4. Create `tsconfig.server.json`
+
+Add a separate TypeScript config for the server alongside the existing front-end
+configs:
+
+```json
 {
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "dist-server",
+    "rootDir": "server",
     "strict": true,
     "esModuleInterop": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true
   },
-  "include": ["src"]
+  "include": ["server"],
+  "exclude": ["node_modules", "dist-server"]
 }
 ```
 
@@ -93,18 +105,18 @@ Then copy it to `.env` (which is **git-ignored**):
 cp .env.example .env
 ```
 
-> **Important:** Never commit `.env` - it may contain secrets in later steps.
-> Ensure your `.gitignore` includes `.env`.
+> **Important:** Never commit `.env` -- it may contain secrets in later steps.
 
-### 6. Create `.gitignore`
+### 6. Update `.gitignore`
+
+Add back-end specific entries to `.gitignore`:
 
 ```
-node_modules
-dist
+dist-server
 .env
 ```
 
-### 7. Write the server - `src/index.ts`
+### 7. Write the server -- `server/index.ts`
 
 ```ts
 import 'dotenv/config'
@@ -115,7 +127,7 @@ import cors from 'cors'
 const required = ['CORS_ORIGIN'] as const
 for (const key of required) {
   if (!process.env[key]) {
-    console.error(`❌  Missing required env var: ${key}`)
+    console.error(`Missing required env var: ${key}`)
     console.error('   Copy .env.example to .env and fill in the values.')
     process.exit(1)
   }
@@ -135,23 +147,41 @@ app.get('/api/health', (_req, res) => {
 
 // --- Listen --------------------------------------------------
 app.listen(PORT, () => {
-  console.log(`✅  Server running on http://localhost:${PORT}`)
+  console.log(`Server running on http://localhost:${PORT}`)
   console.log(`   Health check: http://localhost:${PORT}/api/health`)
 })
 ```
 
-### 8. Build & run
+### 8. Update `package.json` scripts
 
-```bash
-npm run build          # compiles to dist/ - should produce 0 errors
-npm run dev            # starts with tsx in watch mode
+Add scripts to run both the front-end and back-end together:
+
+```jsonc
+{
+  "scripts": {
+    "dev": "concurrently \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc -b && vite build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  }
+}
 ```
 
-Open a second terminal and test the health endpoint:
+### 9. Build and run
+
+```bash
+npm run dev
+```
+
+This starts **both** the Vite dev server (port 5173) and the Express server
+(port 4000) using `concurrently`. Open a second terminal and test:
 
 ```bash
 curl http://localhost:4000/api/health
-# → { "status": "ok", "timestamp": "2025-..." }
+# -> { "status": "ok", "timestamp": "2025-..." }
 ```
 
 ## File Tree

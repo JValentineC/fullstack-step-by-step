@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: 22-a11y-and-polish
+        run: npm ci
+
+      - name: Generate Prisma client
+        working-directory: 22-a11y-and-polish
+        env:
+          DATABASE_URL: "sqlserver://localhost:1433;database=ci;user=sa;password=Placeholder1;encrypt=true;trustServerCertificate=true"
+        run: npx prisma generate
+
+      - name: Run tests
+        working-directory: 22-a11y-and-polish
+        run: npm test
+
+      - name: Build
+        working-directory: 22-a11y-and-polish
+        run: npm run build

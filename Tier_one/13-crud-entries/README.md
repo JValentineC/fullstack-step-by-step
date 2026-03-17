@@ -32,13 +32,19 @@ through Prisma and SQL Server.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 12 -- the full-stack
+app with Prisma + SQL Server connected and the Entry model defined. Install
+dependencies and start the dev server:
 
 ```bash
-cp -r 12-prisma-sqlserver-setup 13-crud-entries
-cd 13-crud-entries
 npm install
+npm run dev
 ```
+
+Explore the existing code. You have a front end, an Express server, and a Prisma
+schema with an `Entry` model. Now you will add CRUD REST endpoints.
 
 ### 2. Fill your `.env` from `.env.example`
 

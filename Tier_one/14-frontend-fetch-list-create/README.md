@@ -26,13 +26,20 @@ the "New Entry" form will POST to the API.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous frontend step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 13 -- the full-stack
+app with CRUD REST API endpoints. The front end still uses local static data --
+it does not yet talk to the API. Install dependencies and start the dev server:
 
 ```bash
-cp -r 10-tags-and-mood-fields 14-frontend-fetch-list-create
-cd 14-frontend-fetch-list-create
 npm install
+npm run dev
 ```
+
+Explore the existing code. The front end (in `src/`) uses local seed data, while
+the back end (in `server/`) has full CRUD endpoints. Your job in this step is to
+connect them.
 
 ### 2. Add a Vite proxy
 

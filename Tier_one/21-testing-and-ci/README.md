@@ -39,8 +39,9 @@ Everything else is unchanged from Step 20.
 
 ## Setup
 
+> This folder already contains the completed code from Step 20 (deploy frontend to GitHub Pages). Run `npm install` and `npm run dev` to see the starting state.
+
 ```bash
-cd 21-testing-and-ci
 npm install
 ```
 

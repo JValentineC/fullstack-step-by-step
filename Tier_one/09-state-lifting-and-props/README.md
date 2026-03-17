@@ -25,13 +25,16 @@ for the first time.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 08 -- form validation with error messages and a11y. Install dependencies and start the dev server:
 
 ```bash
-cp -r 08-form-validation-minimal 09-state-lifting-and-props
-cd 09-state-lifting-and-props
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Rename the default export in `entries.ts`
 

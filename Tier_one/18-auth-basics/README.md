@@ -43,8 +43,9 @@ Add user authentication so only registered users can create, edit, and delete en
 
 ## Setup
 
+> This folder already contains the completed code from Step 17 (pagination and sorting). Run `npm install` and `npm run dev` to see the starting state.
+
 ```bash
-cd 18-auth-basics
 npm install
 ```
 

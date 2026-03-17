@@ -24,13 +24,16 @@ these fields and the entry card to display them.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 09 -- state lifted to App with onAddEntry callback. Install dependencies and start the dev server:
 
 ```bash
-cp -r 09-state-lifting-and-props 10-tags-and-mood-fields
-cd 10-tags-and-mood-fields
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Update the `Entry` interface
 

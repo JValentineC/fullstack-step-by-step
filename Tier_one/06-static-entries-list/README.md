@@ -24,16 +24,16 @@ yet - the data lives in a simple TypeScript module.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
 
-Duplicate `05-extract-simple-components/` into a new folder called
-`06-static-entries-list/` and install dependencies:
+This folder already contains the completed code from Step 05 -- extracted Header, Footer, and AboutSection components. Install dependencies and start the dev server:
 
 ```bash
-cp -r 05-extract-simple-components 06-static-entries-list
-cd 06-static-entries-list
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Create the entries data file
 

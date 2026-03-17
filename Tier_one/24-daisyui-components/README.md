@@ -17,7 +17,16 @@ Restyle every remaining component with **daisyUI classes**: entry cards, forms, 
 ## Prerequisites
 
 - Completed **Step 23** (Tailwind + daisyUI setup with layout shell)
-- Node ≥ 20, npm
+- Node >= 20, npm
+
+## Setup
+
+> This folder already contains the completed code from Step 22 (a11y and polish). Run `npm install` and `npm run dev` to see the starting state. **Note:** Step 23 (Tailwind + daisyUI setup) is a prerequisite that should be completed first.
+
+```bash
+npm install
+npm run dev
+```
 
 ## Steps
 

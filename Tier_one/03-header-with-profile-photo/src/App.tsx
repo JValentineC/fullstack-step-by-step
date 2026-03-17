@@ -2,7 +2,6 @@ function App() {
   return (
     <>
       <header>
-        <img src="/profile.jpg" alt="Profile photo of Intern Name" width="96" height="96" />
         <h1>DevLog</h1>
         <p>A developer's learning journal</p>
       </header>

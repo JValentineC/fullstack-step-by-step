@@ -55,13 +55,18 @@ Add **edit** and **delete** functionality to the DevLog UI. When a user edits or
 
 ## Steps
 
-### 1. Copy the folder (or start fresh)
+### 1. Install and explore
+
+This folder already contains the completed code from Step 14 -- the full-stack
+app with frontend connected to the API via fetch (list + create). Install
+dependencies and start the dev server:
 
 ```bash
-# If starting from Step 14, copy the folder:
-cp -r 14-frontend-fetch-list-create 15-edit-delete-flows
-cd 15-edit-delete-flows
+npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Environment setup
 

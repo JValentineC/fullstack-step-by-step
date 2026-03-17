@@ -18,14 +18,16 @@ Introduce **client-side routing** using `react-router-dom`. Add exactly one link
 
 ## Steps
 
-### 1. Start from a copy of Step 03
+### 1. Install and explore
 
-Copy your Step 03 folder (or start fresh). Install dependencies:
+This folder already contains the completed code from Step 03 -- header with profile photo. Install dependencies and start the dev server:
 
 ```bash
-cd 04-basic-routing-one-link
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Install React Router
 

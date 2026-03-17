@@ -17,14 +17,16 @@ Refactor the monolithic `App.tsx` by extracting **`<Header />`**, **`<AboutSecti
 
 ## Steps
 
-### 1. Start from a copy of Step 04
+### 1. Install and explore
 
-Copy your Step 04 folder. Install dependencies:
+This folder already contains the completed code from Step 04 -- basic routing with Home and About pages. Install dependencies and start the dev server:
 
 ```bash
-cd 05-extract-simple-components
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Create the `src/components/` folder
 

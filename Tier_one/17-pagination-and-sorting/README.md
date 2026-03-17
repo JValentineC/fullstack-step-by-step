@@ -83,6 +83,8 @@ Updated to preserve other search params when changing the tag, and resets
 
 ## Steps
 
+> This folder already contains the completed code from Step 16 (filtering by tags). Run `npm install` and `npm run dev` to see the starting state.
+
 1. Copy `.env` from a previous full-stack step and update if needed.
 2. `npm install`
 3. `npx prisma generate`

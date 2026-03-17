@@ -32,8 +32,9 @@ Everything else is unchanged from Step 18.
 
 ## Setup
 
+> This folder already contains the completed code from Step 18 (auth basics). Run `npm install` and `npm run dev` to see the starting state.
+
 ```bash
-cd 19-deploy-backend
 npm install
 ```
 

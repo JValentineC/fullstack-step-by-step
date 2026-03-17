@@ -24,16 +24,16 @@ learning `useState` with form elements.
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
 
-Duplicate `06-static-entries-list/` into a new folder called
-`07-controlled-form-basics/` and install dependencies:
+This folder already contains the completed code from Step 06 -- static entries list with EntryCard component. Install dependencies and start the dev server:
 
 ```bash
-cp -r 06-static-entries-list 07-controlled-form-basics
-cd 07-controlled-form-basics
 npm install
+npm run dev
 ```
+
+Explore the existing code to familiarize yourself with what is already built.
 
 ### 2. Create the `NewEntryForm` component
 

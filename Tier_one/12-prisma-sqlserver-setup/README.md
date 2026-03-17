@@ -29,12 +29,19 @@ is reachable).
 
 ## Step-by-Step Instructions
 
-### 1. Copy the previous step
+### 1. Install and explore
+
+This folder already contains the completed code from Step 11 -- the frontend app
+with an Express API scaffold (health check endpoint running on port 4000).
+Install dependencies and start the dev server:
 
 ```bash
-cp -r 11-express-api-scaffold 12-prisma-sqlserver-setup
-cd 12-prisma-sqlserver-setup
+npm install
+npm run dev
 ```
+
+Explore the existing code. You have both a React front end and a basic Express
+back end. Now you will add a database layer with Prisma.
 
 ### 2. Install Prisma
 

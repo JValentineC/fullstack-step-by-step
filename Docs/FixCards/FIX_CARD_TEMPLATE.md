@@ -101,19 +101,6 @@ Hypothesis stated (before changes)
 Smallest test run (change one variable)
 Result logged → next step chosen
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 The Fix Card Template
 This is an optional template.  You can always jot this on a post-it note, notecard, or in your notebook.  The only expectation is that you’re using this process to plan for your small groups to follow up on performance assessments, Geek Week, and RFP work observations (as needed).
 

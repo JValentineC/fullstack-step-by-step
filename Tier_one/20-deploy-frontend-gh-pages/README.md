@@ -38,8 +38,9 @@ Everything else is unchanged from Step 19.
 
 ## Setup
 
+> This folder already contains the completed code from Step 19 (deploy backend). Run `npm install` and `npm run dev` to see the starting state.
+
 ```bash
-cd 20-deploy-frontend-gh-pages
 npm install
 ```
 
